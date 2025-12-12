@@ -112,13 +112,13 @@ export default function Services() {
             <AnimatedSection key={index} delay={0.1 + index * 0.1}>
               <motion.div
                 whileHover={{ scale: 1.02, y: -4 }}
-                className="bg-background dark:bg-primary-dark/50 rounded-2xl p-8 border border-primary-dark/10 dark:border-white/10 hover:border-accent/50 dark:hover:border-accent/50 hover:shadow-lg transition-all cursor-default"
+                className="bg-background dark:bg-primary-dark/50 rounded-2xl p-8 border border-primary-dark/10 dark:border-white/10 hover:border-accent/50 dark:hover:border-accent/50 hover:shadow-lg transition-all cursor-default h-full flex flex-col"
               >
                 <div className="text-accent mb-4">{service.icon}</div>
                 <h3 className="text-xl font-bold text-primary-dark dark:text-white mb-3">
                   {service.title}
                 </h3>
-                <p className="text-primary-dark/70 dark:text-white/70 leading-relaxed">
+                <p className="text-primary-dark/70 dark:text-white/70 leading-relaxed flex-grow">
                   {service.description}
                 </p>
               </motion.div>

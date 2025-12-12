@@ -2,54 +2,33 @@
 
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import { motion } from 'framer-motion'
-
-const steps = [
-  {
-    number: '01',
-    title: 'Kostenlose Beratung',
-    description: 'Wir besprechen Ihre Wünsche, Ziele und Budget. Gemeinsam finden wir die beste Lösung für Ihr Unternehmen.',
-  },
-  {
-    number: '02',
-    title: 'Angebot & Planung',
-    description: 'Sie erhalten ein transparentes Angebot mit klaren Kosten. Nach Ihrer Zusage planen wir gemeinsam die Umsetzung.',
-  },
-  {
-    number: '03',
-    title: 'Design & Entwicklung',
-    description: 'Wir erstellen Ihre Website nach modernsten Standards – schnell, sicher und optimiert für alle Geräte.',
-  },
-  {
-    number: '04',
-    title: 'Launch & Betreuung',
-    description: 'Ihre Website geht online! Wir zeigen Ihnen, wie Sie sie verwalten und sind auch danach für Sie da.',
-  },
-]
+import { useApp } from '@/contexts/AppContext'
 
 export default function Process() {
+  const { t } = useApp()
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <AnimatedSection>
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-primary-dark dark:text-white mb-4">
-              So funktioniert's
+              {t.process.title}
             </h2>
             <p className="text-lg text-primary-dark/70 dark:text-white/70 max-w-2xl mx-auto">
-              Von der ersten Idee bis zur Live-Schaltung – in 4 einfachen Schritten zu Ihrer neuen Website.
+              {t.process.subtitle}
             </p>
           </div>
         </AnimatedSection>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {steps.map((step, index) => (
+          {t.process.steps.map((step, index) => (
             <AnimatedSection key={index} delay={0.1 + index * 0.1}>
               <motion.div
                 whileHover={{ y: -4 }}
                 className="relative"
               >
                 {/* Connection Line (Desktop only) */}
-                {index < steps.length - 1 && (
+                {index < t.process.steps.length - 1 && (
                   <div className="hidden lg:block absolute top-12 left-full w-full h-0.5 bg-gradient-to-r from-accent/50 to-transparent z-0" style={{ width: 'calc(100% - 2rem)' }} />
                 )}
 
@@ -68,6 +47,26 @@ export default function Process() {
             </AnimatedSection>
           ))}
         </div>
+
+        {/* CTA Block nach Process */}
+        <AnimatedSection delay={0.5}>
+          <div className="mt-20 text-center">
+            <div className="inline-flex flex-col sm:flex-row gap-4 items-center justify-center">
+              <a
+                href="#kontakt"
+                className="px-6 py-3 bg-primary-dark dark:bg-white text-white dark:text-primary-dark rounded-full font-medium hover:bg-primary-dark/90 dark:hover:bg-white/90 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
+              >
+                {t.process.ctaPrimary}
+              </a>
+              <a
+                href="#projekte"
+                className="px-6 py-3 border-2 border-primary-dark dark:border-white text-primary-dark dark:text-white rounded-full font-medium hover:bg-primary-dark dark:hover:bg-white hover:text-white dark:hover:text-primary-dark transition-all duration-200"
+              >
+                {t.process.ctaSecondary}
+              </a>
+            </div>
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   )

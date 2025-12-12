@@ -23,8 +23,8 @@ export default function Team() {
       role: t.team.hanisten.role,
       description: t.team.hanisten.description,
       links: [
-        { label: t.team.hanisten.linkedin, href: '#' },
-        { label: t.team.hanisten.github, href: '#' },
+        { label: t.team.hanisten.portfolio, href: 'https://hanisten.sunrise-avengers.ch/' },
+        { label: t.team.hanisten.linkedin, href: 'https://www.linkedin.com/in/hanisten-thivakaran-765043327' },
       ],
       initials: 'HT',
     },
@@ -44,7 +44,7 @@ export default function Team() {
             <AnimatedSection key={index} delay={0.1 + index * 0.1}>
               <motion.div
                 whileHover={{ y: -4, scale: 1.01 }}
-                className="bg-background dark:bg-primary-dark/50 rounded-2xl p-8 border border-primary-dark/10 dark:border-white/10 hover:shadow-lg transition-all"
+                className="bg-background dark:bg-primary-dark/50 rounded-2xl p-8 border border-primary-dark/10 dark:border-white/10 hover:shadow-lg transition-all h-full flex flex-col"
               >
                 {/* Avatar Placeholder */}
                 <div className="w-20 h-20 rounded-full bg-gradient-to-br from-accent/30 to-accent/10 flex items-center justify-center text-2xl font-bold text-primary-dark dark:text-white mb-6">
@@ -55,11 +55,11 @@ export default function Team() {
                   {member.name}
                 </h3>
                 <p className="text-accent font-medium mb-4">{member.role}</p>
-                <p className="text-primary-dark/70 dark:text-white/70 leading-relaxed mb-6">
+                <p className="text-primary-dark/70 dark:text-white/70 leading-relaxed mb-6 flex-grow">
                   {member.description}
                 </p>
 
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-3 mt-auto">
                   {member.links.map((link, linkIndex) => (
                     <a
                       key={linkIndex}

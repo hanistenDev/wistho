@@ -43,7 +43,7 @@ export default function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? 'bg-background/80 dark:bg-primary-dark/80 backdrop-blur-md shadow-sm'
           : 'bg-transparent'
@@ -197,33 +197,30 @@ export default function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="md:hidden fixed inset-0 top-20 bg-background/95 dark:bg-primary-dark/95 backdrop-blur-md z-30"
-            onClick={() => setIsMobileMenuOpen(false)}
+            className="md:hidden fixed inset-0 top-20 z-40"
           >
+            {/* Backdrop */}
+            <div
+              className="absolute inset-0 bg-background dark:bg-primary-dark"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+            {/* Menu Content */}
             <motion.div
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -20, opacity: 0 }}
-              className="px-6 py-8 space-y-6"
-              onClick={(e) => e.stopPropagation()}
+              className="relative z-10 px-6 py-8 space-y-6 bg-background dark:bg-primary-dark"
             >
               {navItems.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className="block text-lg font-medium text-primary-dark dark:text-white hover:text-accent transition-colors"
+                  className="block text-lg font-medium text-primary-dark dark:text-white hover:text-accent transition-colors py-3 min-h-[44px] flex items-center"
                 >
                   {item.label}
                 </a>
               ))}
-              <a
-                href="#kontakt"
-                onClick={(e) => handleNavClick(e, '#kontakt')}
-                className="block w-full px-4 py-3 bg-primary-dark dark:bg-white text-white dark:text-primary-dark rounded-full text-center font-medium hover:bg-primary-dark/90 dark:hover:bg-white/90 transition-colors"
-              >
-                {t.nav.requestProject}
-              </a>
             </motion.div>
           </motion.div>
         )}

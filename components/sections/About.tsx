@@ -8,7 +8,7 @@ export default function About() {
 
   const stats = [
     { label: t.about.stats.experience, value: '4+' },
-    { label: t.about.stats.projects, value: '20+' },
+    { label: t.about.stats.projects, value: '4+' },
     { label: t.about.stats.commitment, value: '100%' },
   ]
 

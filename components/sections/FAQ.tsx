@@ -3,36 +3,11 @@
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
-
-const faqs = [
-  {
-    question: 'Wie lange dauert die Erstellung einer Website?',
-    answer: 'In der Regel 2-4 Wochen, abhängig vom Umfang Ihres Projekts. Einfache Onepager können auch schneller fertig sein.',
-  },
-  {
-    question: 'Was kostet eine Website?',
-    answer: 'Die Kosten hängen vom Umfang ab. Einfache Onepager starten ab CHF 1\'500. Wir erstellen Ihnen gerne ein individuelles Angebot.',
-  },
-  {
-    question: 'Kann ich die Website später selbst bearbeiten?',
-    answer: 'Ja! Wir zeigen Ihnen, wie Sie Inhalte selbst aktualisieren können. Auf Wunsch übernehmen wir auch laufende Betreuung und Updates.',
-  },
-  {
-    question: 'Wird meine Website bei Google gefunden?',
-    answer: 'Ja, wir optimieren Ihre Website für Google (SEO). Das bedeutet bessere Sichtbarkeit und mehr potenzielle Kunden.',
-  },
-  {
-    question: 'Funktioniert die Website auf dem Handy?',
-    answer: 'Absolut! Alle unsere Websites sind mobile-optimiert und sehen auf Smartphones genauso gut aus wie auf dem Computer.',
-  },
-  {
-    question: 'Was passiert nach dem Launch?',
-    answer: 'Wir sind auch nach dem Go-Live für Sie da. Bei Fragen, Updates oder Anpassungen können Sie sich jederzeit melden.',
-  },
-]
+import { useApp } from '@/contexts/AppContext'
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0)
+  const { t } = useApp()
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-primary-dark/30">
@@ -40,16 +15,16 @@ export default function FAQ() {
         <AnimatedSection>
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-primary-dark dark:text-white mb-4">
-              Häufige Fragen
+              {t.faq.title}
             </h2>
             <p className="text-lg text-primary-dark/70 dark:text-white/70">
-              Alles, was Sie wissen möchten – einfach erklärt.
+              {t.faq.subtitle}
             </p>
           </div>
         </AnimatedSection>
 
         <div className="space-y-4">
-          {faqs.map((faq, index) => (
+          {t.faq.items.map((faq, index) => (
             <AnimatedSection key={index} delay={0.05 + index * 0.05}>
               <motion.div
                 initial={false}
@@ -81,7 +56,7 @@ export default function FAQ() {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <div className="px-6 pb-4 text-primary-dark/70 dark:text-white/70 leading-relaxed">
+                      <div className="px-6 pb-4 text-primary-dark/70 dark:text-white/70 leading-relaxed whitespace-pre-line">
                         {faq.answer}
                       </div>
                     </motion.div>

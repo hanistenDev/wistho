@@ -12,9 +12,13 @@ export default function Contact() {
     company: '',
     message: '',
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitSuccess, setSubmitSuccess] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setIsSubmitting(true)
+    
     // For now, use mailto as placeholder
     const subject = encodeURIComponent(
       `${t.contact.form.name}: ${formData.name} (${formData.company || t.contact.form.company})`
@@ -22,7 +26,18 @@ export default function Contact() {
     const body = encodeURIComponent(
       `${t.contact.form.name}: ${formData.name}\n${t.contact.form.email}: ${formData.email}\n${t.contact.form.company}: ${formData.company}\n\n${t.contact.form.message}:\n${formData.message}`
     )
-    window.location.href = `mailto:info@wistho-digital.ch?subject=${subject}&body=${body}`
+    
+    // Simulate async submission
+    setTimeout(() => {
+      window.location.href = `mailto:info@wistho-digital.ch?subject=${subject}&body=${body}`
+      setIsSubmitting(false)
+      setSubmitSuccess(true)
+      // Reset form after showing success
+      setTimeout(() => {
+        setFormData({ name: '', email: '', company: '', message: '' })
+        setSubmitSuccess(false)
+      }, 3000)
+    }, 500)
   }
 
   const handleChange = (
@@ -154,14 +169,31 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full px-6 py-3 bg-primary-dark dark:bg-white text-white dark:text-primary-dark rounded-full font-medium hover:bg-primary-dark/90 dark:hover:bg-white/90 transition-colors"
+                disabled={isSubmitting}
+                className={`w-full px-6 py-3 rounded-full font-medium transition-all duration-200 ${
+                  isSubmitting
+                    ? 'bg-primary-dark/50 dark:bg-white/50 text-white/60 dark:text-primary-dark/60 cursor-not-allowed'
+                    : submitSuccess
+                    ? 'bg-green-600 dark:bg-green-500 text-white'
+                    : 'bg-primary-dark dark:bg-white text-white dark:text-primary-dark hover:bg-primary-dark/90 dark:hover:bg-white/90 hover:shadow-lg hover:-translate-y-0.5'
+                }`}
               >
-                {t.contact.form.submit}
+                {isSubmitting
+                  ? t.contact.form.submitting
+                  : submitSuccess
+                  ? t.contact.form.success
+                  : t.contact.form.submit}
               </button>
 
-              <p className="text-sm text-primary-dark/60 dark:text-white/60 text-center">
-                {t.contact.form.responseTime}
-              </p>
+              {submitSuccess ? (
+                <p className="text-sm text-green-500 dark:text-green-400 text-center">
+                  {t.contact.form.responseTime}
+                </p>
+              ) : (
+                <p className="text-sm text-primary-dark/60 dark:text-white/60 text-center leading-relaxed">
+                  {t.contact.form.responseTime}
+                </p>
+              )}
             </form>
           </AnimatedSection>
         </div>

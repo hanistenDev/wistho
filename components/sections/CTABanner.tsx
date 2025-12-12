@@ -39,7 +39,7 @@ export default function CTABanner() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4"
             >
-              Bereit für Ihre neue Website?
+              {t.ctaBanner.title}
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -48,7 +48,7 @@ export default function CTABanner() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-lg sm:text-xl mb-8 text-white/90 max-w-2xl mx-auto"
             >
-              Lassen Sie uns gemeinsam Ihre Online-Präsenz auf die nächste Stufe heben. Kostenlose Beratung inklusive.
+              {t.ctaBanner.subtitle}
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -60,7 +60,7 @@ export default function CTABanner() {
                 onClick={handleScrollToContact}
                 className="px-8 py-4 bg-white text-accent rounded-full font-bold text-lg hover:bg-white/90 transition-colors shadow-lg hover:shadow-xl"
               >
-                Jetzt kostenlos anfragen
+                {t.ctaBanner.button}
               </button>
             </motion.div>
           </div>

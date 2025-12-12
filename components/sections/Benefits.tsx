@@ -83,13 +83,13 @@ export default function Benefits() {
             <AnimatedSection key={index} delay={0.1 + index * 0.05}>
               <motion.div
                 whileHover={{ y: -4, scale: 1.02 }}
-                className="bg-white dark:bg-primary-dark/50 rounded-2xl p-6 border border-primary-dark/10 dark:border-white/10 hover:border-accent/50 dark:hover:border-accent/50 hover:shadow-lg transition-all"
+                className="bg-white dark:bg-primary-dark/50 rounded-2xl p-6 border border-primary-dark/10 dark:border-white/10 hover:border-accent/50 dark:hover:border-accent/50 hover:shadow-lg transition-all h-full flex flex-col"
               >
                 <div className="text-accent mb-4">{benefit.icon}</div>
                 <h3 className="text-xl font-bold text-primary-dark dark:text-white mb-2">
                   {benefit.title}
                 </h3>
-                <p className="text-primary-dark/70 dark:text-white/70 leading-relaxed">
+                <p className="text-primary-dark/70 dark:text-white/70 leading-relaxed flex-grow">
                   {benefit.description}
                 </p>
               </motion.div>

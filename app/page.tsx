@@ -2,7 +2,7 @@ import Hero from '@/components/sections/Hero'
 import About from '@/components/sections/About'
 import Benefits from '@/components/sections/Benefits'
 import Services from '@/components/sections/Services'
-import Projects from '@/components/sections/Projects'
+import ProjectsSection from '@/components/sections/ProjectsSection'
 import Process from '@/components/sections/Process'
 import Testimonials from '@/components/sections/Testimonials'
 import Team from '@/components/sections/Team'
@@ -17,7 +17,7 @@ export default function Home() {
       <About />
       <Benefits />
       <Services />
-      <Projects />
+      <ProjectsSection />
       <Process />
       <Testimonials />
       <Team />
