@@ -36,6 +36,13 @@ function DeviceMockup({
           filter: 'drop-shadow(0 14px 28px rgba(0, 0, 0, 0.3))',
         }}
       >
+        {!shouldLoad && (
+          <div
+            aria-hidden="true"
+            className="w-full"
+            style={{ aspectRatio: '1200 / 750', background: 'transparent' }}
+          />
+        )}
         {shouldLoad && (
           <Image
             src={desktopSrc}
@@ -109,7 +116,12 @@ export default function ProjectsSection() {
     })
 
   return (
-    <section className="bg-[#05070C] text-white" id="projekte" ref={sectionRef}>
+    <section
+      className="bg-[#05070C] text-white"
+      id="projekte"
+      ref={sectionRef}
+      style={{ overflowAnchor: 'none' }}
+    >
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-24 md:py-32 space-y-24 md:space-y-28">
         <div>
           <h2 className="text-4xl md:text-5xl font-semibold tracking-tight">{t.projects.title}</h2>
