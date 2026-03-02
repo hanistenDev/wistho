@@ -2,6 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Preloader system (FOUC-proof) ── */
+
+/* Hide page content while preloader is active */
+html[data-preloader="active"] main,
+html[data-preloader="active"] header,
+html[data-preloader="active"] footer {
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Hide static preloader div when attribute is removed */
+html:not([data-preloader]) #preloader-static {
+  display: none !important;
+}
+
+/* Logo CSS animation (runs before React hydrates) */
+#preloader-static img {
+  opacity: 0;
+  transform: scale(0.98);
+  animation: preloaderLogoIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.12s forwards;
+}
+
+@keyframes preloaderLogoIn {
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Content reveal after preloader finishes */
+html[data-preloader="reveal"] main,
+html[data-preloader="reveal"] header,
+html[data-preloader="reveal"] footer {
+  animation: preloaderReveal 0.3s ease both;
+}
+
+@keyframes preloaderReveal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #preloader-static img {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  html[data-preloader="reveal"] main,
+  html[data-preloader="reveal"] header,
+  html[data-preloader="reveal"] footer {
+    animation: none;
+    opacity: 1;
+  }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;

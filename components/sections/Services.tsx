@@ -93,32 +93,34 @@ export default function Services() {
   ]
 
   return (
-    <section id="leistungen" className="py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-primary-dark/30">
-      <div className="max-w-7xl mx-auto">
+    <section id="leistungen" className="py-28 px-4 sm:px-6 lg:px-8 bg-white dark:bg-primary-dark/30">
+      <div className="max-w-6xl mx-auto">
         <AnimatedSection>
-          <h2 className="text-3xl sm:text-4xl font-bold text-primary-dark dark:text-white mb-4">
+          <h2 className="text-4xl sm:text-5xl font-semibold text-primary-dark dark:text-white mb-4 tracking-tight">
             {t.services.title}
           </h2>
         </AnimatedSection>
 
-        <AnimatedSection delay={0.1}>
-          <p className="text-lg text-primary-dark/70 dark:text-white/70 mb-12 max-w-2xl">
-            {t.services.subtitle}
-          </p>
-        </AnimatedSection>
+        {t.services.subtitle ? (
+          <AnimatedSection delay={0.1}>
+            <p className="text-lg sm:text-xl text-primary-dark/75 dark:text-white/75 mb-14 max-w-2xl">
+              {t.services.subtitle}
+            </p>
+          </AnimatedSection>
+        ) : <div className="mb-10" />}
 
-        <div className="grid sm:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 gap-5">
           {services.map((service, index) => (
             <AnimatedSection key={index} delay={0.1 + index * 0.1}>
               <motion.div
-                whileHover={{ scale: 1.02, y: -4 }}
-                className="bg-background dark:bg-primary-dark/50 rounded-2xl p-8 border border-primary-dark/10 dark:border-white/10 hover:border-accent/50 dark:hover:border-accent/50 hover:shadow-lg transition-all cursor-default h-full flex flex-col"
+                whileHover={{ y: -3 }}
+                className="bg-background dark:bg-primary-dark/50 rounded-2xl p-8 border border-primary-dark/10 dark:border-white/10 hover:border-primary-dark/20 dark:hover:border-white/20 hover:shadow-lg transition-all h-full flex flex-col"
               >
-                <div className="text-accent mb-4">{service.icon}</div>
-                <h3 className="text-xl font-bold text-primary-dark dark:text-white mb-3">
+                <div className="text-primary-dark/80 dark:text-white/80 mb-5">{service.icon}</div>
+                <h3 className="text-2xl font-semibold text-primary-dark dark:text-white mb-3 tracking-tight">
                   {service.title}
                 </h3>
-                <p className="text-primary-dark/70 dark:text-white/70 leading-relaxed flex-grow">
+                <p className="text-primary-dark/70 dark:text-white/70 leading-relaxed flex-grow text-[15px]">
                   {service.description}
                 </p>
               </motion.div>

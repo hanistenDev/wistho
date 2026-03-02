@@ -38,7 +38,7 @@ export default function CustomCursor() {
         target.closest('[role="button"]') ||
         window.getComputedStyle(target).cursor === 'pointer'
 
-      setIsHovering(isInteractive)
+      setIsHovering(!!isInteractive)
     }
 
     window.addEventListener('mousemove', moveCursor)

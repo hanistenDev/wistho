@@ -14,17 +14,17 @@ export default function CTABanner() {
   }
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8">
+    <section className="py-28 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-gradient-to-br from-accent to-accent/80 dark:from-accent dark:to-accent/90 rounded-3xl p-8 sm:p-12 text-center text-white relative overflow-hidden"
+          className="bg-gradient-to-br from-primary-dark to-primary-dark/90 rounded-3xl p-8 sm:p-12 text-center text-white relative overflow-hidden border border-white/10"
         >
           {/* Background Pattern */}
-          <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 opacity-5">
             <div className="absolute inset-0" style={{
               backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
               backgroundSize: '40px 40px'
@@ -37,7 +37,7 @@ export default function CTABanner() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4"
+              className="text-4xl sm:text-5xl lg:text-6xl font-semibold mb-4 tracking-tight"
             >
               {t.ctaBanner.title}
             </motion.h2>
@@ -46,7 +46,7 @@ export default function CTABanner() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg sm:text-xl mb-8 text-white/90 max-w-2xl mx-auto"
+              className="text-lg sm:text-xl mb-8 text-white/75 max-w-2xl mx-auto"
             >
               {t.ctaBanner.subtitle}
             </motion.p>
@@ -58,10 +58,13 @@ export default function CTABanner() {
             >
               <button
                 onClick={handleScrollToContact}
-                className="px-8 py-4 bg-white text-accent rounded-full font-bold text-lg hover:bg-white/90 transition-colors shadow-lg hover:shadow-xl"
+                className="px-8 py-4 bg-white text-primary-dark rounded-full font-semibold text-lg hover:bg-white/90 transition-all duration-300 shadow-lg hover:-translate-y-0.5"
               >
                 {t.ctaBanner.button}
               </button>
+              <p className="mt-4 text-xs text-white/40">
+                {t.ctaBanner.note}
+              </p>
             </motion.div>
           </div>
         </motion.div>

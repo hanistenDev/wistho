@@ -26,6 +26,11 @@ export interface Translations {
   about: {
     title: string
     description: string
+    workTitle: string
+    workItems: Array<{
+      title: string
+      description: string
+    }>
     stats: {
       experience: string
       projects: string
@@ -63,9 +68,10 @@ export interface Translations {
     badgeStudio: string
     badgeClient: string
     items: {
-      webwind: {
+      coiffeurStyl: {
         title: string
         subtitle: string
+        description: string
         bullets: string[]
       }
       yanik: {
@@ -122,6 +128,7 @@ export interface Translations {
   }
   footer: {
     copyright: string
+    allRights: string
     imprint: string
     privacy: string
     madeIn: string
@@ -149,6 +156,7 @@ export interface Translations {
     title: string
     subtitle: string
     button: string
+    note: string
   }
   projectsCTA: {
     primary: string
@@ -164,138 +172,159 @@ export const translations: Record<Language, Translations> = {
       projects: 'Projekte',
       team: 'Team',
       contact: 'Kontakt',
-      requestProject: 'Projekt anfragen',
+      requestProject: 'Projekt besprechen',
     },
     hero: {
-      label: 'Webseiten für kleine Unternehmen in der Schweiz',
-      title: 'Moderne Websites,',
-      titleLine2: 'die Kund:innen überzeugen.',
+      label: 'Built for Growth.',
+      title: 'High-performance Websites',
+      titleLine2: 'für Schweizer Dienstleister.',
       subtitle:
-        'Wistho Digital erstellt klare, schnelle und mobil-optimierte Webseiten für Coiffeure, Restaurants und lokale Dienstleister – ohne komplizierten Fachjargon.',
-      ctaPrimary: 'Projekt anfragen',
-      ctaSecondary: 'Unsere Projekte ansehen',
-      footer: 'Basierend in der Schweiz · Verfügbar für neue Projekte',
+        'Strategisch konzipiert. Klar strukturiert. Technisch optimiert für schnelle Ladezeiten und mehr qualifizierte Anfragen.',
+      ctaPrimary: 'Projekt besprechen',
+      ctaSecondary: 'Projekte ansehen',
+      footer: '',
       trustBadges: {
-        quality: 'Schweizer Qualität',
-        speed: 'Schnelle Ladezeiten',
-        mobile: 'Mobile-optimiert',
+        quality: 'Für Anfragen gebaut',
+        speed: 'Technisch präzise umgesetzt',
+        mobile: 'Direkte Zusammenarbeit mit den Gründern',
       },
     },
     about: {
-      title: 'Über Wistho Digital',
+      title: 'Warum Wistho Digital?',
       description:
-        'Wir helfen kleinen Unternehmen, online professionell aufzutreten – mit modernen Webseiten, die einfach funktionieren. Von der ersten Idee bis zum Go-Live begleiten wir Sie persönlich, verständlich und ohne Fachchinesisch.',
+        'Viele Websites sehen gut aus. Wenige funktionieren wirklich.\n\nWir entwickeln digitale Auftritte, die klar kommunizieren, Vertrauen aufbauen und gezielt Anfragen fördern.\n\nKeine Spielereien. Keine unnötige Komplexität. Sondern Struktur, Klarheit und Performance.',
+      workTitle: 'Unsere Arbeitsweise',
+      workItems: [
+        {
+          title: 'Direkt mit den Gründern',
+          description: 'Sie arbeiten direkt mit uns – von der Strategie bis zum Launch.',
+        },
+        {
+          title: 'Struktur vor Design',
+          description: 'Eine starke Website beginnt mit Klarheit, nicht mit Effekten.',
+        },
+        {
+          title: 'Technische Qualität als Standard',
+          description: 'Schnelle Ladezeiten und saubere Umsetzung sind selbstverständlich.',
+        },
+        {
+          title: 'Langfristig gedacht',
+          description: 'Auch nach dem Launch begleiten wir Weiterentwicklung und Optimierung.',
+        },
+      ],
       stats: {
-        experience: '4+ Jahre Erfahrung',
-        projects: '4+ Projekte',
-        commitment: '100% Einsatz für unsere Kund:innen',
+        experience: '',
+        projects: '',
+        commitment: '',
       },
     },
     services: {
-      title: 'Was wir anbieten',
-      subtitle: 'Fokussiert auf das, was kleine Unternehmen wirklich brauchen.',
+      title: 'Leistungen mit Substanz.',
+      subtitle: '',
       items: {
         websites: {
-          title: 'Webseiten für KMU',
+          title: 'Strategische Websites',
           description:
-            'Moderne, responsive Websites für Coiffeure, Restaurants und andere lokale Betriebe – optimiert für Handy & Google.',
+            'Positionierung, Struktur und klare Nutzerführung.',
         },
         redesign: {
-          title: 'Redesign & Optimierung',
+          title: 'Conversion-orientierte Umsetzung',
           description:
-            'Wir modernisieren bestehende Seiten, verbessern Struktur, Ladezeit und Lesbarkeit.',
+            'Anfrage- und Buchungssysteme, die nachvollziehbar und einfach funktionieren.',
         },
         booking: {
-          title: 'Online-Termin & Anfragen',
+          title: 'Technische Entwicklung',
           description:
-            'Einfacher Kontakt, Anfrage- oder Terminformulare, damit Kund:innen direkt einen nächsten Schritt machen können.',
+            'Schnelle Ladezeiten, saubere Code-Basis und konsequente mobile Optimierung.',
         },
         support: {
-          title: 'Einfache Betreuung',
+          title: 'Weiterentwicklung',
           description:
-            'Auf Wunsch übernehmen wir Updates und kleine Anpassungen laufend.',
+            'Analyse und gezielte Verbesserung nach dem Launch.',
         },
       },
     },
     projects: {
       title: 'Ausgewählte Projekte',
-      subtitle: 'Eine Auswahl an Webseiten, die wir für Unternehmen umgesetzt haben.',
-      buttonLabel: 'Webseite besuchen',
-      buttonLabelPortfolio: 'Portfolio ansehen',
-      buttonLabelComingSoon: 'Coming Soon',
-      badgeStudio: 'Studio Projekt',
+      subtitle: 'Jedes Projekt ist auf Klarheit, Geschwindigkeit und Conversion ausgerichtet.',
+      buttonLabel: 'Projekt ansehen',
+      buttonLabelPortfolio: 'Projekt ansehen',
+      buttonLabelComingSoon: 'Projekt in Entwicklung',
+      badgeStudio: 'Studio-Projekt',
       badgeClient: 'Kundenprojekt',
       items: {
-        webwind: {
-          title: 'Webwind Digital – Webagentur',
-          subtitle: 'Moderne Webagentur für kleine Unternehmen in der Schweiz.',
+        coiffeurStyl: {
+          title: 'Coiffeur Styl',
+          subtitle: 'Barber & Grooming',
+          description:
+            'Komplettes Redesign inklusive integrierter Online-Terminbuchung und Zahlungsfunktion.\nEntwickelt mit Fokus auf Klarheit, mobile Performance und eine klare Conversion-Struktur.',
           bullets: [
-            'User Interface / User Experience',
-            'Webdesign / Webentwicklung',
-            'Conversion-optimierte Landingpages',
-            'Mobil-optimiert',
+            'UI/UX Konzeption und visuelles Redesign',
+            'Integrierte Online-Terminbuchung',
+            'Online-Zahlung und automatisierte Bestätigung',
+            'Mobile-first umgesetzt und technisch optimiert',
           ],
         },
         yanik: {
           title: 'Yanik Wisler – Portfolio',
-          subtitle: 'Persönliches Portfolio – Design & Frontend-Entwicklung durch Wistho Digital',
+          subtitle: 'Design & Frontend',
           description:
-            'Hochwertiges persönliches Portfolio mit starkem Fokus auf UI/UX, visuelle Hierarchie und präzise umgesetzte Frontend-Erlebnisse. Das Projekt zeigt moderne Webentwicklung, dezente Animationen und ein klares, professionelles Designsystem.',
+            'Persönliches Portfolio als Showcase für modernes UI/UX-Design und präzise technische Umsetzung.',
           bullets: [
-            'Modernes UI/UX Design mit klarer visueller Struktur',
-            'Präzise Frontend-Umsetzung mit React & Next.js',
-            'Flüssige Animationen & Micro-Interactions',
-            'Performance-optimiert & vollständig responsive',
+            'Eigenständiges Designsystem',
+            'Umsetzung mit React & Next.js',
+            'Subtile Animationen und Micro-Interactions',
+            'Performance-optimiert',
           ],
         },
         hanisten: {
           title: 'Hanisten Thivakaran – Portfolio',
-          subtitle: 'Persönliches Portfolio – Design & Frontend-Entwicklung durch Wistho Digital',
+          subtitle: 'Interaction & Motion',
           description:
-            'Modernes Entwickler-Portfolio mit animiertem Hintergrund, Interaktionen und einem starken Fokus auf Benutzererlebnis. Das Projekt kombiniert kreatives Design mit sauberer Frontend-Architektur und Motion Design.',
+            'Experimentelles Portfolio mit Fokus auf Interaktion, Motion Design und strukturierte Frontend-Architektur.',
           bullets: [
-            'Animierter Hintergrund & interaktive UI-Elemente',
-            'Frontend-Entwicklung mit React & modernen Webtechnologien',
-            'Fokus auf Motion Design & User Experience',
-            'Mobile First & geräteübergreifend optimiert',
+            'Interaktive UI-Elemente',
+            'Motion Design Fokus',
+            'Saubere Frontend-Architektur',
+            'Mobile-first Umsetzung',
           ],
         },
         huy: {
-          title: 'Huy Nails – Design & Beauty',
-          subtitle: 'Moderne Website für ein Nailstudio in Zug (Coming Soon)',
+          title: 'Huy Nails',
+          subtitle: 'Beauty & Design',
           description:
-            'Elegante und moderne Website für ein Nailstudio mit Fokus auf Ästhetik, Markenwirkung und Conversion. Die Seite kombiniert hochwertige Bildsprache mit klaren Call-to-Actions und integrierter Online-Terminbuchung.',
+            'Elegante, conversion-orientierte Website für eine moderne Beauty-Marke.\nKonzipiert mit klarer visueller Hierarchie und integrierter Terminbuchung.',
           bullets: [
-            'Elegantes UI/UX Design für Beauty & Lifestyle',
-            'Integrierte Online-Terminbuchung',
-            'Klare Call-to-Actions (Book Now, Services)',
-            'Mobile First & responsive Layouts',
+            'Hochwertiges UI/UX Design',
+            'Integrierte Terminbuchung',
+            'Klare Conversion-Struktur',
+            'Vollständig responsive Umsetzung',
           ],
         },
       },
     },
     team: {
-      title: 'Yanik Wisler',
+      title: 'Das Team',
       yanik: {
-        role: 'Applikationsentwickler & Co-Founder',
+        role: 'Co-Founder · Engineering',
         description:
-          'Applikationsentwickler bei Sunrise und Co-Founder von Wistho Digital. Ich verbinde sauberen Code mit klaren Interfaces und entwickle Lösungen, die technisch durchdacht, visuell präzise und langfristig stabil sind. Mein Interesse gilt modernen Webtechnologien sowie KI- und Automatisierungslösungen.',
-        portfolio: 'Portfolio ansehen',
+          'Verantwortlich für technische Qualität, Performance und stabile Architektur.',
+        portfolio: 'Portfolio',
         linkedin: 'LinkedIn',
       },
       hanisten: {
-        role: 'Applikationsentwickler & Co-Founder',
+        role: 'Co-Founder · Design & Frontend',
         description:
-          'Applikationsentwickler bei Sunrise und Co-Founder von Wistho Digital. Mein Fokus liegt auf UI/UX, Frontend-Entwicklung und Motion Design. Ich gestalte Web-Erlebnisse, die intuitiv funktionieren, sich hochwertig anfühlen und Nutzer:innen ohne Erklärungen abholen.',
-        portfolio: 'Portfolio ansehen',
+          'Verantwortlich für visuelle Klarheit, Interface-Systeme und überzeugende Nutzerführung.',
+        portfolio: 'Portfolio',
         linkedin: 'LinkedIn',
         github: 'GitHub',
       },
     },
     contact: {
-      title: 'Lass uns über dein Projekt sprechen',
+      title: 'Lassen Sie uns über Ihr Projekt sprechen',
       subtitle:
-        'Du möchtest eine neue Website oder deine bestehende modernisieren? Schreib uns eine kurze Nachricht – wir melden uns mit Ideen und einer Einschätzung.',
+        'Schreiben Sie uns eine kurze Nachricht – wir melden uns mit einer Einschätzung und konkreten Ideen.',
       email: 'E-Mail',
       phone: 'WhatsApp / Telefon',
       form: {
@@ -310,7 +339,8 @@ export const translations: Record<Language, Translations> = {
       },
     },
     footer: {
-      copyright: '© 2025 Wistho Digital',
+      copyright: '© 2026 Wistho Digital',
+      allRights: 'Alle Rechte vorbehalten.',
       imprint: 'Impressum',
       privacy: 'Datenschutz',
       madeIn: 'Gestaltet & entwickelt in der Schweiz.',
@@ -320,6 +350,10 @@ export const translations: Record<Language, Translations> = {
       subtitle: 'Alles, was Sie wissen möchten – einfach erklärt.',
       items: [
         {
+          question: 'Was braucht ihr von mir, damit wir starten können?',
+          answer: 'Logo (falls vorhanden), Texte/Infos zu Ihren Leistungen, Bilder (oder wir helfen bei passenden Bildern) und ein kurzes Gespräch zu Zielgruppe und Stil. Danach übernehmen wir den Rest.',
+        },
+        {
           question: 'Wie lange dauert die Erstellung einer Website?',
           answer: 'In der Regel 2-4 Wochen, abhängig vom Umfang Ihres Projekts. Einfache Onepager können auch schneller fertig sein.',
         },
@@ -328,8 +362,16 @@ export const translations: Record<Language, Translations> = {
           answer: 'Jedes Projekt ist individuell – deshalb arbeiten wir nicht mit fixen Paketen. In einem kostenlosen Erstgespräch klären wir Ihre Ziele und erstellen Ihnen ein transparentes Angebot, passend zu Ihrem Budget. Unverbindlich und ohne Fachchinesisch.',
         },
         {
-          question: 'Wie funktionieren Änderungen und Updates?',
-          answer: 'Änderungen an Ihrer Website übernehmen wir gerne für Sie. Ob Texte, Bilder oder kleinere Anpassungen – Sie melden sich einfach bei uns, und wir kümmern uns darum. Auf Wunsch bieten wir auch eine laufende Betreuung, damit Ihre Website immer aktuell bleibt – ohne dass Sie sich selbst mit Technik beschäftigen müssen.',
+          question: 'Wie laufen Änderungen und Feedback-Runden ab?',
+          answer: 'Sie erhalten einen ersten Entwurf und geben Feedback. Kleine Anpassungen sind ganz normal – wir planen dafür klare Feedback-Runden ein, damit alles sauber und schnell fertig wird.',
+        },
+        {
+          question: 'Könnt ihr Online-Terminbuchung und Zahlungen integrieren?',
+          answer: 'Ja. Für Dienstleister integrieren wir auf Wunsch ein Buchungssystem (z.B. mit Online-Zahlung oder Zahlung vor Ort). Wir beraten Sie, welche Lösung am besten passt.',
+        },
+        {
+          question: 'Übernehmt ihr Domain und Hosting?',
+          answer: 'Ja, auf Wunsch kümmern wir uns um Domain, Hosting und die technische Einrichtung. Wenn Sie bereits Hosting haben, integrieren wir die Website auch dort.',
         },
         {
           question: 'Wird meine Website bei Google gefunden?',
@@ -343,177 +385,203 @@ export const translations: Record<Language, Translations> = {
           question: 'Was passiert nach dem Launch?',
           answer: 'Wir sind auch nach dem Go-Live für Sie da. Bei Fragen, Updates oder Anpassungen können Sie sich jederzeit melden.',
         },
+        {
+          question: 'Wie funktionieren laufende Änderungen und Updates?',
+          answer: 'Änderungen an Ihrer Website übernehmen wir gerne für Sie. Ob Texte, Bilder oder kleinere Anpassungen – Sie melden sich einfach bei uns, und wir kümmern uns darum. Auf Wunsch bieten wir auch eine laufende Betreuung, damit Ihre Website immer aktuell bleibt.',
+        },
       ],
     },
     process: {
-      title: "So funktioniert's",
-      subtitle: 'Von der ersten Idee bis zur Live-Schaltung – in 4 einfachen Schritten zu Ihrer neuen Website.',
+      title: 'Unser Prozess',
+      subtitle: '',
       steps: [
         {
           number: '01',
-          title: 'Kostenlose Beratung',
-          description: 'Wir besprechen Ihre Wünsche, Ziele und Budget. Gemeinsam finden wir die beste Lösung für Ihr Unternehmen.',
+          title: 'Kickoff',
+          description: 'Ziele, Zielgruppe und Positionierung definieren.',
         },
         {
           number: '02',
-          title: 'Angebot & Planung',
-          description: 'Sie erhalten ein transparentes Angebot mit klaren Kosten. Nach Ihrer Zusage planen wir gemeinsam die Umsetzung.',
+          title: 'Struktur',
+          description: 'Informationsarchitektur und klare Conversion-Logik entwickeln.',
         },
         {
           number: '03',
           title: 'Design & Entwicklung',
-          description: 'Wir erstellen Ihre Website nach modernsten Standards – schnell, sicher und optimiert für alle Geräte.',
+          description: 'Visuell hochwertig und technisch präzise umgesetzt.',
         },
         {
           number: '04',
-          title: 'Launch & Betreuung',
-          description: 'Ihre Website geht online! Wir zeigen Ihnen, wie Sie sie verwalten und sind auch danach für Sie da.',
+          title: 'Launch & Optimierung',
+          description: 'Analyse, Feinjustierung und kontinuierliche Weiterentwicklung.',
         },
       ],
-      ctaPrimary: 'Jetzt Projekt anfragen',
-      ctaSecondary: 'Unsere Projekte ansehen',
+      ctaPrimary: 'Projekt besprechen',
+      ctaSecondary: 'Projekte ansehen',
     },
     ctaBanner: {
-      title: 'Bereit für Ihre neue Website?',
-      subtitle: 'Lassen Sie uns gemeinsam Ihre Online-Präsenz auf die nächste Stufe heben. Kostenlose Beratung inklusive.',
-      button: 'Jetzt kostenlos anfragen',
+      title: 'Bereit für eine Website, die performt?',
+      subtitle: 'Vereinbaren Sie ein unverbindliches Erstgespräch.',
+      button: 'Projekt besprechen',
+      note: 'Kostenlos & unverbindlich.',
     },
     projectsCTA: {
-      primary: 'Projekt anfragen',
-      secondary: 'Kostenlose Beratung',
+      primary: 'Projekt besprechen',
+      secondary: 'Projekte ansehen',
     },
   },
   en: {
     nav: {
-      about: 'About Us',
+      about: 'About',
       services: 'Services',
       projects: 'Projects',
       team: 'Team',
       contact: 'Contact',
-      requestProject: 'Request Project',
+      requestProject: 'Discuss Project',
     },
     hero: {
-      label: 'Websites for small businesses in Switzerland',
-      title: 'Modern websites',
-      titleLine2: 'that convince customers.',
+      label: 'Built for Growth.',
+      title: 'High-performance Websites',
+      titleLine2: 'for Swiss Service Providers.',
       subtitle:
-        'Wistho Digital creates clear, fast and mobile-optimized websites for hairdressers, restaurants and local service providers – without complicated jargon.',
-      ctaPrimary: 'Request Project',
-      ctaSecondary: 'View Our Projects',
-      footer: 'Based in Switzerland · Available for new projects',
+        'Strategically designed. Clearly structured. Technically optimized for fast load times and more qualified inquiries.',
+      ctaPrimary: 'Discuss Project',
+      ctaSecondary: 'View Cases',
+      footer: '',
       trustBadges: {
-        quality: 'Swiss Quality',
-        speed: 'Fast Loading Times',
-        mobile: 'Mobile-Optimized',
+        quality: 'Built for Inquiries',
+        speed: 'Technically Precise Implementation',
+        mobile: 'Direct Collaboration with Founders',
       },
     },
     about: {
-      title: 'About Wistho Digital',
+      title: 'Why Wistho Digital?',
       description:
-        'We help small businesses present themselves professionally online – with modern websites that simply work. From the first idea to go-live, we accompany you personally, understandably and without technical jargon.',
+        'Many websites look good. Few actually work.\n\nWe build digital presences that communicate clearly, build trust and strategically drive inquiries.\n\nNo gimmicks. No unnecessary complexity. Just structure, clarity and performance.',
+      workTitle: 'How we work',
+      workItems: [
+        {
+          title: 'Founder-led studio',
+          description: 'Work directly with us — from strategy to launch.',
+        },
+        {
+          title: 'Structure before design',
+          description: 'A strong website starts with clarity, not effects.',
+        },
+        {
+          title: 'Engineering-quality by default',
+          description: 'Fast load times and clean implementation are standard.',
+        },
+        {
+          title: 'Built for the long term',
+          description: 'After launch, we support ongoing improvements and optimization.',
+        },
+      ],
       stats: {
-        experience: '4+ Years Experience',
-        projects: '4+ Projects',
-        commitment: '100% Commitment to Our Clients',
+        experience: '',
+        projects: '',
+        commitment: '',
       },
     },
     services: {
-      title: 'What We Offer',
-      subtitle: 'Focused on what small businesses really need.',
+      title: 'Services with Substance.',
+      subtitle: '',
       items: {
         websites: {
-          title: 'Websites for SMEs',
+          title: 'Strategic Websites',
           description:
-            'Modern, responsive websites for hairdressers, restaurants and other local businesses – optimized for mobile & Google.',
+            'Positioning, structure and clear user guidance.',
         },
         redesign: {
-          title: 'Redesign & Optimization',
+          title: 'Conversion-Focused Implementation',
           description:
-            'We modernize existing sites, improve structure, loading time and readability.',
+            'Inquiry and booking systems that are intuitive and simply work.',
         },
         booking: {
-          title: 'Online Appointments & Inquiries',
+          title: 'Technical Development',
           description:
-            'Easy contact, inquiry or appointment forms so customers can take the next step directly.',
+            'Fast load times, clean codebase and consistent mobile optimization.',
         },
         support: {
-          title: 'Simple Support',
+          title: 'Ongoing Development',
           description:
-            'On request, we take care of updates and small adjustments on an ongoing basis.',
+            'Analysis and targeted improvement after launch.',
         },
       },
     },
     projects: {
-      title: 'Selected Projects',
-      subtitle: 'A selection of websites we have implemented for companies.',
-      buttonLabel: 'Visit Website',
-      buttonLabelPortfolio: 'View Portfolio',
-      buttonLabelComingSoon: 'Coming Soon',
+      title: 'Selected Work',
+      subtitle: 'Each project is built for clarity, speed and conversion.',
+      buttonLabel: 'View Project',
+      buttonLabelPortfolio: 'View Project',
+      buttonLabelComingSoon: 'In Development',
       badgeStudio: 'Studio Project',
       badgeClient: 'Client Project',
       items: {
-        webwind: {
-          title: 'Webwind Digital – Web Agency',
-          subtitle: 'Modern web agency for small businesses in Switzerland.',
+        coiffeurStyl: {
+          title: 'Coiffeur Styl',
+          subtitle: 'Barber & Grooming',
+          description:
+            'Complete redesign including integrated online booking and payment functionality.\nBuilt with a focus on clarity, mobile performance and a clear conversion structure.',
           bullets: [
-            'User Interface / User Experience',
-            'Web Design / Web Development',
-            'Conversion-optimized Landing Pages',
-            'Mobile-optimized',
+            'UI/UX concept and visual redesign',
+            'Integrated online booking',
+            'Online payment and automated confirmation',
+            'Mobile-first built and technically optimized',
           ],
         },
         yanik: {
           title: 'Yanik Wisler – Portfolio',
-          subtitle: 'Personal Portfolio – Design & Frontend Development by Wistho Digital',
+          subtitle: 'Design & Frontend',
           description:
-            'High-quality personal portfolio with strong focus on UI/UX, visual hierarchy and precisely implemented frontend experiences. The project showcases modern web development, subtle animations and a clear, professional design system.',
+            'Personal portfolio as a showcase for modern UI/UX design and precise technical implementation.',
           bullets: [
-            'Modern UI/UX Design with clear visual structure',
-            'Precise Frontend Implementation with React & Next.js',
-            'Smooth Animations & Micro-Interactions',
-            'Performance-optimized & fully responsive',
+            'Custom design system',
+            'Built with React & Next.js',
+            'Subtle animations and micro-interactions',
+            'Performance-optimized',
           ],
         },
         hanisten: {
           title: 'Hanisten Thivakaran – Portfolio',
-          subtitle: 'Personal Portfolio – Design & Frontend Development by Wistho Digital',
+          subtitle: 'Interaction & Motion',
           description:
-            'Modern developer portfolio with animated background, interactions and strong focus on user experience. The project combines creative design with clean frontend architecture and motion design.',
+            'Experimental portfolio focused on interaction, motion design and structured frontend architecture.',
           bullets: [
-            'Animated Background & Interactive UI Elements',
-            'Frontend Development with React & Modern Web Technologies',
-            'Focus on Motion Design & User Experience',
-            'Mobile First & Cross-device Optimized',
+            'Interactive UI elements',
+            'Motion design focus',
+            'Clean frontend architecture',
+            'Mobile-first implementation',
           ],
         },
         huy: {
-          title: 'Huy Nails – Design & Beauty',
-          subtitle: 'Modern website for a nail studio in Zug (Coming Soon)',
+          title: 'Huy Nails',
+          subtitle: 'Beauty & Design',
           description:
-            'Elegant and modern website for a nail studio with focus on aesthetics, brand impact and conversion. The site combines high-quality imagery with clear call-to-actions and integrated online appointment booking.',
+            'Elegant, conversion-focused website for a modern beauty brand.\nDesigned with clear visual hierarchy and integrated booking.',
           bullets: [
-            'Elegant UI/UX Design for Beauty & Lifestyle',
-            'Integrated Online Appointment Booking',
-            'Clear Call-to-Actions (Book Now, Services)',
-            'Mobile First & Responsive Layouts',
+            'Premium UI/UX design',
+            'Integrated appointment booking',
+            'Clear conversion structure',
+            'Fully responsive implementation',
           ],
         },
       },
     },
     team: {
-      title: 'Yanik Wisler',
+      title: 'The Team',
       yanik: {
-        role: 'Application Developer & Co-Founder',
+        role: 'Co-Founder · Engineering',
         description:
-          'Application Developer at Sunrise and Co-Founder of Wistho Digital. I combine clean code with clear interfaces and develop solutions that are technically sound, visually precise and stable in the long term. My interests include modern web technologies as well as AI and automation solutions.',
-        portfolio: 'View Portfolio',
+          'Responsible for technical quality, performance and stable architecture.',
+        portfolio: 'Portfolio',
         linkedin: 'LinkedIn',
       },
       hanisten: {
-        role: 'Application Developer & Co-Founder',
+        role: 'Co-Founder · Design & Frontend',
         description:
-          'Application Developer at Sunrise and Co-Founder of Wistho Digital. My focus is on UI/UX, frontend development and motion design. I create web experiences that work intuitively, feel premium and engage users without explanations.',
-        portfolio: 'View Portfolio',
+          'Responsible for visual clarity, interface systems and compelling user guidance.',
+        portfolio: 'Portfolio',
         linkedin: 'LinkedIn',
         github: 'GitHub',
       },
@@ -521,7 +589,7 @@ export const translations: Record<Language, Translations> = {
     contact: {
       title: "Let's Talk About Your Project",
       subtitle:
-        'Do you want a new website or modernize your existing one? Write us a short message – we will get back to you with ideas and an assessment.',
+        'Send us a short message – we will get back to you with an assessment and concrete ideas.',
       email: 'Email',
       phone: 'WhatsApp / Phone',
       form: {
@@ -536,7 +604,8 @@ export const translations: Record<Language, Translations> = {
       },
     },
     footer: {
-      copyright: '© 2025 Wistho Digital',
+      copyright: '© 2026 Wistho Digital',
+      allRights: 'All rights reserved.',
       imprint: 'Imprint',
       privacy: 'Privacy',
       madeIn: 'Designed & developed in Switzerland.',
@@ -546,6 +615,10 @@ export const translations: Record<Language, Translations> = {
       subtitle: 'Everything you want to know – simply explained.',
       items: [
         {
+          question: 'What do you need from me to get started?',
+          answer: 'A logo (if available), text/info about your services, images (or we help find suitable ones) and a short conversation about your target audience and style. After that, we take care of everything.',
+        },
+        {
           question: 'How long does it take to create a website?',
           answer: 'Usually 2-4 weeks, depending on the scope of your project. Simple one-pagers can be completed faster.',
         },
@@ -554,8 +627,16 @@ export const translations: Record<Language, Translations> = {
           answer: "Every project is unique – that's why we don't work with fixed packages. In a free initial consultation, we clarify your goals and create a transparent quote tailored to your budget. Non-binding and without technical jargon.",
         },
         {
-          question: 'How do changes and updates work?',
-          answer: "We are happy to make changes to your website for you. Whether it's texts, images or minor adjustments – simply contact us and we'll take care of it. On request, we also offer ongoing support to keep your website up to date – without you having to deal with the technical side yourself.",
+          question: 'How do feedback rounds and revisions work?',
+          answer: 'You receive an initial draft and provide feedback. Small adjustments are completely normal – we plan clear feedback rounds so everything is finished cleanly and quickly.',
+        },
+        {
+          question: 'Can you integrate online booking and payments?',
+          answer: 'Yes. For service providers, we integrate a booking system on request (e.g. with online payment or on-site payment). We advise you on the best solution.',
+        },
+        {
+          question: 'Do you handle domain and hosting?',
+          answer: 'Yes, on request we take care of the domain, hosting and technical setup. If you already have hosting, we integrate the website there as well.',
         },
         {
           question: 'Will my website be found on Google?',
@@ -569,44 +650,49 @@ export const translations: Record<Language, Translations> = {
           question: 'What happens after launch?',
           answer: 'We are there for you even after go-live. If you have questions, updates or adjustments, you can contact us at any time.',
         },
+        {
+          question: 'How do ongoing changes and updates work?',
+          answer: "We are happy to make changes to your website for you. Whether it's texts, images or minor adjustments – simply contact us and we take care of it. On request, we also offer ongoing support to keep your website up to date.",
+        },
       ],
     },
     process: {
-      title: 'How It Works',
-      subtitle: 'From the first idea to going live – in 4 simple steps to your new website.',
+      title: 'Our Process',
+      subtitle: '',
       steps: [
         {
           number: '01',
-          title: 'Free Consultation',
-          description: 'We discuss your wishes, goals and budget. Together we find the best solution for your company.',
+          title: 'Kickoff',
+          description: 'Define goals, target audience and positioning.',
         },
         {
           number: '02',
-          title: 'Quote & Planning',
-          description: 'You receive a transparent quote with clear costs. After your acceptance, we plan the implementation together.',
+          title: 'Structure',
+          description: 'Develop information architecture and clear conversion logic.',
         },
         {
           number: '03',
           title: 'Design & Development',
-          description: 'We create your website according to the latest standards – fast, secure and optimized for all devices.',
+          description: 'Visually premium and technically precise implementation.',
         },
         {
           number: '04',
-          title: 'Launch & Support',
-          description: 'Your website goes online! We show you how to manage it and are there for you afterwards too.',
+          title: 'Launch & Optimization',
+          description: 'Analysis, fine-tuning and continuous development.',
         },
       ],
-      ctaPrimary: 'Request Project Now',
-      ctaSecondary: 'View Our Projects',
+      ctaPrimary: 'Discuss Project',
+      ctaSecondary: 'View Cases',
     },
     ctaBanner: {
-      title: 'Ready for Your New Website?',
-      subtitle: 'Let us take your online presence to the next level together. Free consultation included.',
-      button: 'Request Free Quote',
+      title: 'Ready for a website that performs?',
+      subtitle: 'Schedule a free, no-obligation consultation.',
+      button: 'Discuss Project',
+      note: 'Free & no obligation.',
     },
     projectsCTA: {
-      primary: 'Request Project',
-      secondary: 'Free Consultation',
+      primary: 'Discuss Project',
+      secondary: 'View Cases',
     },
   },
 }
