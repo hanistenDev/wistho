@@ -102,6 +102,9 @@ export default function Contact() {
           pendingSubmitRef.current = false
           if (window.turnstile && widgetIdRef.current) {
             window.turnstile.reset(widgetIdRef.current)
+            if (window.turnstile.execute) {
+              window.turnstile.execute(widgetIdRef.current)
+            }
           }
           setSubmitSuccess(false)
         }, 3000)
@@ -139,7 +142,12 @@ export default function Contact() {
             void submitForm(token)
           }
         },
-        'expired-callback': () => setTurnstileToken(''),
+        'expired-callback': () => {
+          setTurnstileToken('')
+          if (window.turnstile?.execute && widgetIdRef.current) {
+            window.turnstile.execute(widgetIdRef.current)
+          }
+        },
         'error-callback': () => {
           setTurnstileToken('')
           pendingSubmitRef.current = false
@@ -154,6 +162,11 @@ export default function Contact() {
       })
 
       if (pendingSubmitRef.current && window.turnstile.execute && widgetIdRef.current) {
+        window.turnstile.execute(widgetIdRef.current)
+      }
+
+      // Preload a token to make first submit faster.
+      if (window.turnstile.execute && widgetIdRef.current) {
         window.turnstile.execute(widgetIdRef.current)
       }
     }

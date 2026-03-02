@@ -18,6 +18,11 @@ const requiredEnv = [
   'CONTACT_TO_EMAIL',
 ] as const
 
+const TURNSTILE_TIMEOUT_MS = 7000
+
+let cachedTransporter: nodemailer.Transporter | null = null
+let cachedTransportKey = ''
+
 export async function POST(request: Request) {
   try {
     const body = (await request.json()) as ContactPayload
@@ -58,6 +63,11 @@ export async function POST(request: Request) {
     verifyBody.append('secret', turnstileSecret)
     verifyBody.append('response', turnstileToken)
 
+    const turnstileAbort = new AbortController()
+    const turnstileTimer = setTimeout(() => {
+      turnstileAbort.abort()
+    }, TURNSTILE_TIMEOUT_MS)
+
     const verifyResponse = await fetch(
       'https://challenges.cloudflare.com/turnstile/v0/siteverify',
       {
@@ -66,8 +76,10 @@ export async function POST(request: Request) {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: verifyBody.toString(),
+        signal: turnstileAbort.signal,
       }
     )
+    clearTimeout(turnstileTimer)
 
     const verifyData = (await verifyResponse.json()) as {
       success?: boolean
@@ -81,19 +93,28 @@ export async function POST(request: Request) {
       )
     }
 
-    const transporter = nodemailer.createTransport({
-      host: smtpHost,
-      port: smtpPort,
-      secure: smtpPort === 465,
-      requireTLS: smtpPort === 587,
-      auth: {
-        user: smtpUser,
-        pass: smtpPass,
-      },
-      tls: {
-        minVersion: 'TLSv1.2',
-      },
-    })
+    const transportKey = `${smtpHost}|${smtpPort}|${smtpUser}`
+    if (!cachedTransporter || cachedTransportKey !== transportKey) {
+      cachedTransporter = nodemailer.createTransport({
+        host: smtpHost,
+        port: smtpPort,
+        secure: smtpPort === 465,
+        requireTLS: smtpPort === 587,
+        connectionTimeout: 8000,
+        greetingTimeout: 8000,
+        socketTimeout: 12000,
+        auth: {
+          user: smtpUser,
+          pass: smtpPass,
+        },
+        tls: {
+          minVersion: 'TLSv1.2',
+        },
+      })
+      cachedTransportKey = transportKey
+    }
+
+    const transporter = cachedTransporter!
 
     const to = contactToEmail
     const from = smtpFromEmail || smtpUser || 'info@wistho.ch'

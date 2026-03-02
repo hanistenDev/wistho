@@ -17,26 +17,20 @@ const AppContext = createContext<AppContextType | undefined>(undefined)
 
 export function AppProvider({ children }: { children: ReactNode }) {
   const [language, setLanguageState] = useState<Language>('de')
-  const [theme, setThemeState] = useState<Theme>('light')
+  const [theme, setThemeState] = useState<Theme>('dark')
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     setMounted(true)
     // Load from localStorage
     const savedLanguage = localStorage.getItem('language') as Language | null
-    const savedTheme = localStorage.getItem('theme') as Theme | null
 
     if (savedLanguage && (savedLanguage === 'de' || savedLanguage === 'en')) {
       setLanguageState(savedLanguage)
     }
 
-    if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
-      setThemeState(savedTheme)
-    } else {
-      // Check system preference
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-      setThemeState(prefersDark ? 'dark' : 'light')
-    }
+    // Always default to dark on page load for consistent premium appearance.
+    setThemeState('dark')
   }, [])
 
   useEffect(() => {
@@ -47,7 +41,6 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (mounted) {
-      localStorage.setItem('theme', theme)
       if (theme === 'dark') {
         document.documentElement.classList.add('dark')
       } else {

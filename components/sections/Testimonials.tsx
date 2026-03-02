@@ -6,7 +6,7 @@ const testimonials = [
   {
     quote:
       'Die Zusammenarbeit war klar strukturiert und professionell.\nUnsere neue Website wirkt hochwertig – und die Online-Buchungen laufen deutlich effizienter als zuvor.',
-    name: 'Ahmed A.',
+    name: 'Ahmad O.',
     role: 'Inhaber, Coiffeur Styl',
   },
   {

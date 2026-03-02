@@ -39,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="de-CH" suppressHydrationWarning data-preloader="active">
+    <html lang="de-CH" className="dark" suppressHydrationWarning data-preloader="active">
       <head />
       <body className={inter.className}>
         {/* Static preloader overlay — always in server HTML, hidden by CSS when data-preloader is removed */}
