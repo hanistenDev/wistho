@@ -102,7 +102,7 @@ export default function ProjectsSection() {
       itemKey: 'hanisten' as const,
       label: t.projects.badgeStudio,
       buttonLabel: t.projects.buttonLabelPortfolio,
-      buttonUrl: 'https://hanisten.sunrise-avengers.ch/',
+      buttonUrl: 'https://hanistendev.netlify.app/',
       desktopSrc: '/projects/MacBook Pro 14 (4).png',
     },
   ]

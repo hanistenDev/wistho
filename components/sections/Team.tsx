@@ -23,7 +23,7 @@ export default function Team() {
       role: t.team.hanisten.role,
       description: t.team.hanisten.description,
       links: [
-        { label: t.team.hanisten.portfolio, href: 'https://hanisten.sunrise-avengers.ch/' },
+        { label: t.team.hanisten.portfolio, href: 'https://hanistendev.netlify.app/' },
         { label: t.team.hanisten.linkedin, href: 'https://www.linkedin.com/in/hanisten-thivakaran-765043327' },
       ],
       initials: 'HT',
