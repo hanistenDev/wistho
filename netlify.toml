@@ -5,7 +5,7 @@
 [build.environment]
   # These values are intentionally public/expected in generated output.
   # Omitting them prevents false-positive secret scan build failures.
-  SECRETS_SCAN_OMIT_KEYS = "CONTACT_TO_EMAIL,SMTP_HOST,NEXT_PUBLIC_TURNSTILE_SITE_KEY"
+  SECRETS_SCAN_OMIT_KEYS = "CONTACT_TO_EMAIL,SMTP_HOST,SMTP_USER,SMTP_FROM_EMAIL,NEXT_PUBLIC_TURNSTILE_SITE_KEY"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
