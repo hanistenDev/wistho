@@ -8,6 +8,8 @@ type ContactPayload = {
   message?: string
   language?: 'de' | 'en'
   turnstileToken?: string
+  website?: string
+  formStartedAt?: number | string
 }
 
 const requiredEnv = [
@@ -19,19 +21,62 @@ const requiredEnv = [
 ] as const
 
 const TURNSTILE_TIMEOUT_MS = 7000
+const MIN_FORM_FILL_MS = 2500
+const MAX_FORM_AGE_MS = 1000 * 60 * 60 * 24
+const RATE_LIMIT_WINDOW_MS = 1000 * 60 * 10
+const RATE_LIMIT_MAX = 5
 
 let cachedTransporter: nodemailer.Transporter | null = null
 let cachedTransportKey = ''
+const rateLimitStore = new Map<string, { count: number; resetAt: number }>()
+
+function getClientIp(request: Request): string {
+  const forwardedFor = request.headers.get('x-forwarded-for') || ''
+  const realIp =
+    request.headers.get('x-nf-client-connection-ip') ||
+    request.headers.get('x-real-ip') ||
+    ''
+
+  const firstForwarded = forwardedFor.split(',')[0]?.trim()
+  return firstForwarded || realIp || 'unknown'
+}
 
 export async function POST(request: Request) {
   try {
     const body = (await request.json()) as ContactPayload
+    const clientIp = getClientIp(request)
     const name = (body.name || '').trim()
     const email = (body.email || '').trim()
     const company = (body.company || '').trim()
     const message = (body.message || '').trim()
     const language = body.language === 'en' ? 'en' : 'de'
     const turnstileToken = (body.turnstileToken || '').trim()
+    const website = (body.website || '').trim()
+    const formStartedAt = Number(body.formStartedAt || 0)
+
+    // Honeypot trap: pretend success for bots.
+    if (website) {
+      return NextResponse.json({ ok: true }, { status: 200 })
+    }
+
+    const now = Date.now()
+    if (
+      !Number.isFinite(formStartedAt) ||
+      now - formStartedAt < MIN_FORM_FILL_MS ||
+      now - formStartedAt > MAX_FORM_AGE_MS
+    ) {
+      return NextResponse.json({ error: 'spam_detected' }, { status: 400 })
+    }
+
+    const existingWindow = rateLimitStore.get(clientIp)
+    if (!existingWindow || now > existingWindow.resetAt) {
+      rateLimitStore.set(clientIp, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS })
+    } else if (existingWindow.count >= RATE_LIMIT_MAX) {
+      return NextResponse.json({ error: 'rate_limited' }, { status: 429 })
+    } else {
+      existingWindow.count += 1
+      rateLimitStore.set(clientIp, existingWindow)
+    }
 
     if (!name || !email || !message) {
       return NextResponse.json({ error: 'missing_fields' }, { status: 400 })
@@ -62,24 +107,31 @@ export async function POST(request: Request) {
     const verifyBody = new URLSearchParams()
     verifyBody.append('secret', turnstileSecret)
     verifyBody.append('response', turnstileToken)
+    if (clientIp && clientIp !== 'unknown') {
+      verifyBody.append('remoteip', clientIp)
+    }
 
     const turnstileAbort = new AbortController()
     const turnstileTimer = setTimeout(() => {
       turnstileAbort.abort()
     }, TURNSTILE_TIMEOUT_MS)
 
-    const verifyResponse = await fetch(
-      'https://challenges.cloudflare.com/turnstile/v0/siteverify',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: verifyBody.toString(),
-        signal: turnstileAbort.signal,
-      }
-    )
-    clearTimeout(turnstileTimer)
+    let verifyResponse: Response
+    try {
+      verifyResponse = await fetch(
+        'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: verifyBody.toString(),
+          signal: turnstileAbort.signal,
+        }
+      )
+    } finally {
+      clearTimeout(turnstileTimer)
+    }
 
     const verifyData = (await verifyResponse.json()) as {
       success?: boolean

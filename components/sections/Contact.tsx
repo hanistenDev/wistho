@@ -29,6 +29,7 @@ declare global {
 export default function Contact() {
   const { t, language } = useApp()
   const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY
+  const formStartedAtRef = useRef<number>(Date.now())
   const defaultMessageDe =
     'Ich interessiere mich für ein kostenloses Beratungsgespräch.'
   const defaultMessageEn = 'I am interested in a free consultation.'
@@ -39,6 +40,7 @@ export default function Contact() {
     email: '',
     company: '',
     message: defaultMessage,
+    website: '',
   })
   const messageTouchedRef = useRef(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -85,6 +87,7 @@ export default function Contact() {
             ...latestFormDataRef.current,
             language: latestLanguageRef.current,
             turnstileToken: captchaToken,
+            formStartedAt: formStartedAtRef.current,
           }),
         })
 
@@ -97,7 +100,14 @@ export default function Contact() {
         setShowSuccessToast(true)
         setTimeout(() => {
           messageTouchedRef.current = false
-          setFormData({ name: '', email: '', company: '', message: defaultMessage })
+          setFormData({
+            name: '',
+            email: '',
+            company: '',
+            message: defaultMessage,
+            website: '',
+          })
+          formStartedAtRef.current = Date.now()
           setTurnstileToken('')
           pendingSubmitRef.current = false
           if (window.turnstile && widgetIdRef.current) {
@@ -417,6 +427,19 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   className="w-full px-4 py-3 rounded-xl border border-primary-dark/20 dark:border-white/20 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all bg-white dark:bg-primary-dark/50 resize-none text-primary-dark dark:text-white"
+                />
+              </div>
+
+              <div className="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
+                <label htmlFor="website">Website</label>
+                <input
+                  id="website"
+                  name="website"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={formData.website}
+                  onChange={handleChange}
                 />
               </div>
 
