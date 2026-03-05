@@ -15,10 +15,11 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://wistho.ch'),
   icons: {
     icon: [
+      { url: '/icon', type: 'image/png', sizes: '64x64' },
       { url: '/icon.svg', type: 'image/svg+xml' },
       { url: '/logo-wt.png', type: 'image/png', sizes: '192x192' },
     ],
-    shortcut: ['/icon.svg'],
+    shortcut: ['/icon'],
     apple: [{ url: '/apple-icon' }],
   },
   alternates: {
