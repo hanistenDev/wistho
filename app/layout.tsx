@@ -13,6 +13,14 @@ export const metadata: Metadata = {
   title: 'Wistho – Webagentur Schweiz',
   description: 'Wistho ist eine moderne Webagentur in der Schweiz für hochwertiges Webdesign, Entwicklung und digitale Lösungen.',
   metadataBase: new URL('https://wistho.ch'),
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/logo-wt.png', type: 'image/png', sizes: '192x192' },
+    ],
+    shortcut: ['/icon.svg'],
+    apple: [{ url: '/apple-icon' }],
+  },
   alternates: {
     canonical: '/',
   },

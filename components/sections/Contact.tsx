@@ -29,6 +29,7 @@ declare global {
 export default function Contact() {
   const { t, language } = useApp()
   const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY
+  const contactEmail = ['info', 'wistho.ch'].join('@')
   const formStartedAtRef = useRef<number>(Date.now())
   const defaultMessageDe =
     'Ich interessiere mich für ein kostenloses Beratungsgespräch.'
@@ -280,7 +281,7 @@ export default function Contact() {
             <div className="flex flex-col gap-4">
               {/* Email */}
               <a
-                href="mailto:info@wistho.ch"
+                href={`mailto:${contactEmail}`}
                 className="group flex items-center gap-4 rounded-[16px] bg-white/60 dark:bg-white/[0.03] border border-primary-dark/[0.06] dark:border-white/[0.08] px-5 py-[18px] shadow-[0_1px_2px_rgba(0,0,0,0.03),0_4px_16px_rgba(0,0,0,0.02)] dark:shadow-[0_1px_2px_rgba(0,0,0,0.15),0_4px_16px_rgba(0,0,0,0.1)] hover:border-primary-dark/[0.12] dark:hover:border-white/[0.14] hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
               >
                 <div className="flex-shrink-0 w-9 h-9 rounded-xl bg-primary-dark/[0.04] dark:bg-white/[0.05] flex items-center justify-center">
@@ -294,7 +295,7 @@ export default function Contact() {
                     E-Mail
                   </span>
                   <span className="block text-[15px] font-semibold text-primary-dark dark:text-white truncate">
-                    info@wistho.ch
+                    Per E-Mail schreiben
                   </span>
                 </div>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 text-primary-dark/25 dark:text-white/25 group-hover:text-primary-dark/50 dark:group-hover:text-white/50 group-hover:translate-x-0.5 transition-all duration-200">

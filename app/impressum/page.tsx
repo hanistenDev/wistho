@@ -1,4 +1,13 @@
-'use client'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Impressum | Wistho',
+  description: 'Rechtliche Angaben und Kontaktadresse von Wistho.',
+  robots: {
+    index: false,
+    follow: true,
+  },
+}
 
 export default function Impressum() {
   return (
@@ -16,7 +25,7 @@ export default function Impressum() {
               Yanik Wisler &amp; Hanisten Thivakaran<br />
               Schweiz
             </p>
-            <p className="mt-2">E-Mail: info@wistho.ch</p>
+            <p className="mt-2">E-Mail: info [at] wistho.ch</p>
           </div>
 
           <div>
