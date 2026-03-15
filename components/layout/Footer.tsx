@@ -20,7 +20,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="text-lg font-semibold tracking-tight mb-1">
-              Wistho Digital
+              Wistho
             </div>
             <div className="text-xs text-white/40 dark:text-primary-dark/40 uppercase tracking-[0.2em] mb-4">
               Swiss Performance Studio

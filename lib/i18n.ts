@@ -190,7 +190,7 @@ export const translations: Record<Language, Translations> = {
       },
     },
     about: {
-      title: 'Warum Wistho Digital?',
+      title: 'Warum Wistho?',
       description:
         'Viele Websites sehen gut aus. Wenige funktionieren wirklich.\n\nWir entwickeln digitale Auftritte, die klar kommunizieren, Vertrauen aufbauen und gezielt Anfragen fördern.\n\nKeine Spielereien. Keine unnötige Komplexität. Sondern Struktur, Klarheit und Performance.',
       workTitle: 'Unsere Arbeitsweise',
@@ -339,7 +339,7 @@ export const translations: Record<Language, Translations> = {
       },
     },
     footer: {
-      copyright: '© 2026 Wistho Digital',
+      copyright: '© 2026 Wistho',
       allRights: 'Alle Rechte vorbehalten.',
       imprint: 'Impressum',
       privacy: 'Datenschutz',
@@ -455,7 +455,7 @@ export const translations: Record<Language, Translations> = {
       },
     },
     about: {
-      title: 'Why Wistho Digital?',
+      title: 'Why Wistho?',
       description:
         'Many websites look good. Few actually work.\n\nWe build digital presences that communicate clearly, build trust and strategically drive inquiries.\n\nNo gimmicks. No unnecessary complexity. Just structure, clarity and performance.',
       workTitle: 'How we work',
@@ -604,7 +604,7 @@ export const translations: Record<Language, Translations> = {
       },
     },
     footer: {
-      copyright: '© 2026 Wistho Digital',
+      copyright: '© 2026 Wistho',
       allRights: 'All rights reserved.',
       imprint: 'Imprint',
       privacy: 'Privacy',

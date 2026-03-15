@@ -21,7 +21,7 @@ export default function Datenschutz() {
           <div>
             <h2 className="text-lg font-semibold text-primary-dark dark:text-white mb-3">Verantwortliche Stelle</h2>
             <p>
-              Wistho Digital<br />
+              Wistho<br />
               Yanik Wisler &amp; Hanisten Thivakaran<br />
               Schweiz
             </p>

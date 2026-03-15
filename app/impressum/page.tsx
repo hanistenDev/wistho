@@ -21,7 +21,7 @@ export default function Impressum() {
           <div>
             <h2 className="text-lg font-semibold text-primary-dark dark:text-white mb-3">Kontaktadresse</h2>
             <p>
-              Wistho Digital<br />
+              Wistho<br />
               Yanik Wisler &amp; Hanisten Thivakaran<br />
               Schweiz
             </p>
@@ -68,7 +68,7 @@ export default function Impressum() {
             <h2 className="text-lg font-semibold text-primary-dark dark:text-white mb-3">Urheberrechte</h2>
             <p>
               Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien
-              auf der Website gehören ausschliesslich Wistho Digital oder den speziell genannten
+              auf der Website gehören ausschliesslich Wistho oder den speziell genannten
               Rechtsinhabern. Für die Reproduktion jeglicher Elemente ist die schriftliche Zustimmung
               der Urheberrechtsträger im Voraus einzuholen.
             </p>

@@ -63,7 +63,7 @@ export default function Header() {
           >
             <img
               src="/logo-wt.png"
-              alt="Wistho Digital"
+              alt="Wistho"
               className="h-28 w-28 sm:h-32 sm:w-32 object-contain brightness-0 dark:brightness-0 dark:invert select-none pointer-events-none"
             />
             <span className="text-xl sm:text-2xl font-semibold tracking-[0.18em] uppercase text-primary-dark dark:text-white">
