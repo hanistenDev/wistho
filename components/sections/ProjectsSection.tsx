@@ -89,22 +89,6 @@ export default function ProjectsSection() {
       buttonUrl: '#',
       desktopSrc: '/projects/MacBook Pro14(2).png',
     },
-    {
-      id: 'yanik',
-      itemKey: 'yanik' as const,
-      label: t.projects.badgeStudio,
-      buttonLabel: t.projects.buttonLabelPortfolio,
-      buttonUrl: 'https://yawis.netlify.app/en',
-      desktopSrc: '/projects/MacBook Pro 14(3).png',
-    },
-    {
-      id: 'hanisten',
-      itemKey: 'hanisten' as const,
-      label: t.projects.badgeStudio,
-      buttonLabel: t.projects.buttonLabelPortfolio,
-      buttonUrl: 'https://hanistendev.netlify.app/',
-      desktopSrc: '/projects/MacBook Pro 14 (4).png',
-    },
   ]
 
   const { ref: sectionRef, visibleCount, prefersReducedMotion } =
