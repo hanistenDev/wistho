@@ -25,7 +25,7 @@ export default function Impressum() {
               Yanik Wisler &amp; Hanisten Thivakaran<br />
               Schweiz
             </p>
-            <p className="mt-2">E-Mail: info [at] wistho.ch</p>
+            <p className="mt-2">E-Mail: info@wistho.ch</p>
           </div>
 
           <div>

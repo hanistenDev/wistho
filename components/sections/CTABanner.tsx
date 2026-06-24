@@ -17,10 +17,10 @@ export default function CTABanner() {
     <section className="py-28 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: '0px 0px -12% 0px' }}
+          transition={{ duration: 0.44, ease: [0.16, 1, 0.3, 1] }}
           className="bg-gradient-to-br from-primary-dark to-primary-dark/90 rounded-3xl p-8 sm:p-12 text-center text-white relative overflow-hidden border border-white/10"
         >
           {/* Background Pattern */}
@@ -33,28 +33,28 @@ export default function CTABanner() {
 
           <div className="relative z-10">
             <motion.h2
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true, margin: '0px 0px -12% 0px' }}
+              transition={{ duration: 0.44, delay: 0.04, ease: [0.16, 1, 0.3, 1] }}
               className="text-4xl sm:text-5xl lg:text-6xl font-semibold mb-4 tracking-tight"
             >
               {t.ctaBanner.title}
             </motion.h2>
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true, margin: '0px 0px -12% 0px' }}
+              transition={{ duration: 0.44, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
               className="text-lg sm:text-xl mb-8 text-white/75 max-w-2xl mx-auto"
             >
               {t.ctaBanner.subtitle}
             </motion.p>
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true, margin: '0px 0px -12% 0px' }}
+              transition={{ duration: 0.44, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
             >
               <button
                 onClick={handleScrollToContact}

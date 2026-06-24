@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useApp } from '@/contexts/AppContext'
+import { navigateHome, navigateToSection, sectionHref } from '@/lib/navigate'
 
 export default function Header() {
   const { language, setLanguage, theme, setTheme, t } = useApp()
@@ -19,10 +20,7 @@ export default function Header() {
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
+    navigateToSection(href)
     setIsMobileMenuOpen(false)
   }
 
@@ -54,11 +52,8 @@ export default function Header() {
         <div className={`flex items-center justify-between transition-[height] duration-500 ${isScrolled ? 'h-16' : 'h-20'}`}>
           {/* Logo */}
           <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault()
-              window.scrollTo({ top: 0, behavior: 'smooth' })
-            }}
+            href="/"
+            onClick={navigateHome}
             className="flex items-center gap-2.5 hover:opacity-90 transition-opacity duration-200"
           >
             <img
@@ -76,7 +71,7 @@ export default function Header() {
             {navItems.map((item) => (
               <motion.a
                 key={item.href}
-                href={item.href}
+                href={sectionHref(item.href)}
                 onClick={(e) => handleNavClick(e, item.href)}
                 whileHover={{ y: -1 }}
                 className="text-sm font-medium text-primary-dark/75 dark:text-white/75 hover:text-primary-dark dark:hover:text-white transition-colors"
@@ -127,7 +122,7 @@ export default function Header() {
             </button>
 
             <a
-              href="#kontakt"
+              href={sectionHref('#kontakt')}
               onClick={(e) => handleNavClick(e, '#kontakt')}
               className="px-5 py-2.5 bg-primary-dark dark:bg-white text-white dark:text-primary-dark rounded-full text-sm font-medium hover:-translate-y-0.5 hover:shadow-lg transition-all"
             >
@@ -223,7 +218,7 @@ export default function Header() {
               {navItems.map((item) => (
                 <a
                   key={item.href}
-                  href={item.href}
+                  href={sectionHref(item.href)}
                   onClick={(e) => handleNavClick(e, item.href)}
                   className="block text-lg font-medium text-primary-dark dark:text-white hover:text-accent transition-colors py-3 min-h-[44px] flex items-center"
                 >

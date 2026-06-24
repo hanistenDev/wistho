@@ -17,7 +17,7 @@ const AppContext = createContext<AppContextType | undefined>(undefined)
 
 export function AppProvider({ children }: { children: ReactNode }) {
   const [language, setLanguageState] = useState<Language>('de')
-  const [theme, setThemeState] = useState<Theme>('dark')
+  const [theme, setThemeState] = useState<Theme>('light')
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -29,8 +29,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       setLanguageState(savedLanguage)
     }
 
-    // Always default to dark on page load for consistent premium appearance.
-    setThemeState('dark')
+    document.documentElement.classList.remove('dark')
   }, [])
 
   useEffect(() => {

@@ -15,10 +15,10 @@ export default function AnimatedSection({
   children,
   className = '',
   delay = 0,
-  yOffset = 24,
+  yOffset = 14,
 }: AnimatedSectionProps) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const isInView = useInView(ref, { once: true, margin: '0px 0px -12% 0px' })
   const [reducedMotion, setReducedMotion] = useState(false)
 
   useEffect(() => {
@@ -30,21 +30,23 @@ export default function AnimatedSection({
     return () => query.removeEventListener('change', onChange)
   }, [])
 
+  const motionDelay = reducedMotion ? 0 : delay * 0.55
+  const ease = [0.16, 1, 0.3, 1] as const
+
   return (
     <motion.div
       ref={ref}
-      initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: yOffset, filter: 'blur(6px)' }}
+      initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: yOffset }}
       animate={
         isInView
-          ? { opacity: 1, y: 0, filter: 'blur(0px)' }
+          ? { opacity: 1, y: 0 }
           : reducedMotion
             ? { opacity: 0 }
-            : { opacity: 0, y: yOffset, filter: 'blur(6px)' }
+            : { opacity: 0, y: yOffset }
       }
       transition={{
-        duration: reducedMotion ? 0.25 : 0.7,
-        delay: reducedMotion ? 0 : delay,
-        ease: [0.22, 1, 0.36, 1],
+        opacity: { duration: reducedMotion ? 0.2 : 0.32, delay: motionDelay, ease },
+        y: { duration: reducedMotion ? 0.2 : 0.44, delay: motionDelay, ease },
       }}
       className={className}
     >

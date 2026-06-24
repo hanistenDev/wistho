@@ -1,16 +1,14 @@
 'use client'
 
 import { useApp } from '@/contexts/AppContext'
+import { navigateToSection, sectionHref } from '@/lib/navigate'
 
 export default function Footer() {
   const { t } = useApp()
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
+    navigateToSection(href)
   }
 
   return (
@@ -33,19 +31,19 @@ export default function Footer() {
           {/* Navigation */}
           <div>
             <nav className="flex flex-col gap-2.5">
-              <a href="#ueber-uns" onClick={(e) => handleNavClick(e, '#ueber-uns')} className="text-sm text-white/65 dark:text-primary-dark/65 hover:text-white dark:hover:text-primary-dark transition-colors">
+              <a href={sectionHref('#ueber-uns')} onClick={(e) => handleNavClick(e, '#ueber-uns')} className="text-sm text-white/65 dark:text-primary-dark/65 hover:text-white dark:hover:text-primary-dark transition-colors">
                 {t.nav.about}
               </a>
-              <a href="#leistungen" onClick={(e) => handleNavClick(e, '#leistungen')} className="text-sm text-white/65 dark:text-primary-dark/65 hover:text-white dark:hover:text-primary-dark transition-colors">
+              <a href={sectionHref('#leistungen')} onClick={(e) => handleNavClick(e, '#leistungen')} className="text-sm text-white/65 dark:text-primary-dark/65 hover:text-white dark:hover:text-primary-dark transition-colors">
                 {t.nav.services}
               </a>
-              <a href="#projekte" onClick={(e) => handleNavClick(e, '#projekte')} className="text-sm text-white/65 dark:text-primary-dark/65 hover:text-white dark:hover:text-primary-dark transition-colors">
+              <a href={sectionHref('#projekte')} onClick={(e) => handleNavClick(e, '#projekte')} className="text-sm text-white/65 dark:text-primary-dark/65 hover:text-white dark:hover:text-primary-dark transition-colors">
                 {t.nav.projects}
               </a>
-              <a href="#team" onClick={(e) => handleNavClick(e, '#team')} className="text-sm text-white/65 dark:text-primary-dark/65 hover:text-white dark:hover:text-primary-dark transition-colors">
+              <a href={sectionHref('#team')} onClick={(e) => handleNavClick(e, '#team')} className="text-sm text-white/65 dark:text-primary-dark/65 hover:text-white dark:hover:text-primary-dark transition-colors">
                 {t.nav.team}
               </a>
-              <a href="#kontakt" onClick={(e) => handleNavClick(e, '#kontakt')} className="text-sm text-white/65 dark:text-primary-dark/65 hover:text-white dark:hover:text-primary-dark transition-colors">
+              <a href={sectionHref('#kontakt')} onClick={(e) => handleNavClick(e, '#kontakt')} className="text-sm text-white/65 dark:text-primary-dark/65 hover:text-white dark:hover:text-primary-dark transition-colors">
                 {t.nav.contact}
               </a>
             </nav>

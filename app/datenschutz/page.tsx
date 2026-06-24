@@ -25,7 +25,7 @@ export default function Datenschutz() {
               Yanik Wisler &amp; Hanisten Thivakaran<br />
               Schweiz
             </p>
-            <p className="mt-2">E-Mail: info [at] wistho.ch</p>
+            <p className="mt-2">E-Mail: info@wistho.ch</p>
           </div>
 
           <div>
@@ -93,7 +93,7 @@ export default function Datenschutz() {
             </p>
             <p className="mt-3">
               Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit
-              an uns wenden: info [at] wistho.ch
+              an uns wenden: info@wistho.ch
             </p>
           </div>
 
