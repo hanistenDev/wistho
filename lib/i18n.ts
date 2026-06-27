@@ -96,6 +96,11 @@ export interface Translations {
   }
   team: {
     title: string
+    vision: {
+      heading: string
+      para1: string
+      para2: string
+    }
     yanik: {
       role: string
       description: string
@@ -115,6 +120,12 @@ export interface Translations {
     subtitle: string
     email: string
     phone: string
+    links: {
+      emailLabel: string
+      emailText: string
+      whatsappLabel: string
+      whatsappText: string
+    }
     form: {
       name: string
       email: string
@@ -161,6 +172,48 @@ export interface Translations {
   projectsCTA: {
     primary: string
     secondary: string
+  }
+  testimonials: {
+    heading: string
+    items: Array<{
+      quote: string
+      name: string
+      role: string
+    }>
+  }
+  packages: {
+    title: string
+    subtitle: string
+    labels: {
+      result: string
+      idealFor: string
+      process: string
+      mostPopular: string
+    }
+    webGroup: {
+      title: string
+      items: Array<{
+        name: string
+        description: string
+        result: string
+        idealFor: string
+        highlights: string[]
+        cta: string
+      }>
+    }
+    aiGroup: {
+      title: string
+      subtitle: string
+      items: Array<{
+        name: string
+        description: string
+        result: string
+        idealFor: string
+        highlights: string[]
+        process?: string[]
+        cta: string
+      }>
+    }
   }
 }
 
@@ -305,6 +358,11 @@ export const translations: Record<Language, Translations> = {
     },
     team: {
       title: 'Das Team',
+      vision: {
+        heading: 'Unser Anspruch',
+        para1: 'Wir haben Wistho gegründet, um KMU zu helfen, online klarer, strukturierter und professioneller aufzutreten.',
+        para2: 'Unser Fokus liegt auf nachhaltiger Performance und durchdachter Struktur - nicht auf kurzfristigen Trends.',
+      },
       yanik: {
         role: 'Co-Founder · Engineering',
         description:
@@ -327,6 +385,12 @@ export const translations: Record<Language, Translations> = {
         'Schreiben Sie uns eine kurze Nachricht – wir melden uns mit einer Einschätzung und konkreten Ideen.',
       email: 'E-Mail',
       phone: 'WhatsApp / Telefon',
+      links: {
+        emailLabel: 'E-Mail',
+        emailText: 'Per E-Mail schreiben',
+        whatsappLabel: 'Telefon & WhatsApp',
+        whatsappText: 'Via WhatsApp schreiben',
+      },
       form: {
         name: 'Name',
         email: 'E-Mail',
@@ -429,6 +493,140 @@ export const translations: Record<Language, Translations> = {
       primary: 'Projekt besprechen',
       secondary: 'Projekte ansehen',
     },
+    testimonials: {
+      heading: 'Vertrauen durch echte Zusammenarbeit.',
+      items: [
+        {
+          quote: 'Die Zusammenarbeit war klar strukturiert und professionell.\nUnsere neue Website wirkt hochwertig - und die Online-Buchungen laufen deutlich effizienter als zuvor.',
+          name: 'Ahmad O.',
+          role: 'Inhaber, Coiffeur Styl',
+        },
+      ],
+    },
+    packages: {
+      title: 'Leistungspakete',
+      subtitle: 'Klare Lösungen für moderne Dienstleister – von der professionellen Website bis zu Booking, AI und Automatisierung.',
+      labels: {
+        result: 'Das Resultat',
+        idealFor: 'Ideal für',
+        process: 'Ablauf',
+        mostPopular: 'Meistgebucht',
+      },
+      webGroup: {
+        title: 'High-Performance Webdesign',
+        items: [
+          {
+            name: 'WISTHO Starter',
+            description: 'Die professionelle Website für lokale Betriebe, die online klarer und hochwertiger auftreten möchten.',
+            result: 'Eine moderne Website, die Ihr Angebot verständlich präsentiert, Vertrauen schafft und Besucher gezielt zur Anfrage führt.',
+            idealFor: 'Selbstständige, lokale Dienstleister, neue Studios, Barber, Coiffeure und kleine Unternehmen.',
+            highlights: [
+              'Individuelles Webdesign abgestimmt auf Ihre Marke',
+              'Bis zu 3 strategische Seiten',
+              'Mobile-First Umsetzung',
+              'Kontaktformular oder WhatsApp-Anfrage',
+              'Technische Grundoptimierung',
+              'SEO-Grundstruktur für lokale Sichtbarkeit',
+              'Schnelle Ladezeiten durch moderne Entwicklung',
+            ],
+            cta: 'Projekt unverbindlich anfragen',
+          },
+          {
+            name: 'WISTHO Business & Booking',
+            description: 'Das Website-System für Dienstleister, die mehr Termine und qualifizierte Anfragen erhalten möchten.',
+            result: 'Ihre Website arbeitet auch dann für Sie, wenn Sie gerade beschäftigt sind. Kunden können sich informieren, Vertrauen aufbauen und direkt einen Termin oder eine Anfrage auslösen.',
+            idealFor: 'Barber, Coiffeure, Kosmetikstudios, Nagelstudios, Physios, Praxen und lokale Dienstleister mit Termin- oder Anfragegeschäft.',
+            highlights: [
+              'Alles aus WISTHO Starter',
+              'Mehrseitige Website-Struktur',
+              'Klare Leistungsseiten',
+              'Online-Terminbuchung',
+              'Optional: Online-Zahlung',
+              'Automatische Bestätigungen, sofern technisch möglich',
+              'Conversion-orientierte Nutzerführung',
+              'Lokale SEO-Grundlagen',
+              'Hochwertige Animationen und Interaktionen',
+            ],
+            cta: 'Kostenlose Potenzialanalyse sichern',
+          },
+          {
+            name: 'WISTHO Growth & Custom',
+            description: 'Die individuelle Lösung für Unternehmen, die mehr als eine klassische Website benötigen.',
+            result: 'Eine hochwertige Website oder Web-Applikation, die professionell auftritt, komplexere Inhalte strukturiert und konkrete Abläufe digital unterstützt.',
+            idealFor: 'Etablierte KMU, Bauträger, Immobilienprojekte, Generalunternehmer und Unternehmen mit individuellen Anforderungen oder eigenen digitalen Abläufen.',
+            highlights: [
+              'Alles aus WISTHO Business & Booking',
+              'Individuelle Seiten- und Funktionsstruktur',
+              'Custom Web-App Funktionen',
+              'Datenbank-Anbindung bei Bedarf',
+              'API-Schnittstellen zu bestehenden Tools',
+              'Analytics-Setup',
+              'Performance-Optimierung',
+              'Technische Weiterentwicklung nach dem Launch',
+            ],
+            cta: 'Strategiegespräch vereinbaren',
+          },
+        ],
+      },
+      aiGroup: {
+        title: 'AI & Automation',
+        subtitle: 'Erweiterbare Module für Unternehmen, die wiederkehrende Fragen, Anfragen oder interne Abläufe effizienter bearbeiten möchten.',
+        items: [
+          {
+            name: 'AI Website Assistant',
+            description: 'Der smarte Assistent für wiederkehrende Kundenfragen auf Ihrer Website.',
+            result: 'Ein KI-Assistent beantwortet häufige Fragen zu Leistungen, Preisen, Öffnungszeiten, Abläufen oder Terminen und leitet Interessenten bei Bedarf zur Anfrage weiter.',
+            idealFor: 'Unternehmen, die viele ähnliche Fragen per Telefon, E-Mail, WhatsApp oder Instagram erhalten.',
+            highlights: [
+              'KI-Chatbot mit Wissensbasis',
+              'Training mit bereitgestellten Unternehmensinformationen',
+              'Integration auf Ihrer Website',
+              'FAQ-Logik',
+              'Übergabe an Kontaktformular, E-Mail oder WhatsApp',
+              'Keine automatischen Aktionen ohne Freigabe',
+            ],
+            cta: 'Chatbot-Konzept anfragen',
+          },
+          {
+            name: 'AI Voice Assistant',
+            description: 'Der digitale Telefonassistent für verpasste Anrufe und einfache Erstkontakte.',
+            result: 'Ein KI-Sprachassistent kann Anrufe entgegennehmen, Anliegen erfassen und strukturierte Informationen für Sie vorbereiten. Besonders sinnvoll für Betriebe, die während der Arbeit oft nicht ans Telefon können.',
+            idealFor: 'Dienstleister, Handwerksbetriebe, Praxen und Studios, die regelmässig Anrufe verpassen oder viele ähnliche telefonische Anfragen erhalten.',
+            highlights: [
+              'Anliegen aufnehmen',
+              'Kontaktdaten erfassen',
+              'Terminanfragen vorbereiten',
+              'Rückrufwünsche dokumentieren',
+              'Informationen strukturiert weiterleiten',
+              'Umsetzung wird individuell geprüft',
+            ],
+            cta: 'Live-Demo anfragen',
+          },
+          {
+            name: 'Automation Sprint',
+            description: 'Für Unternehmen, die wiederkehrende manuelle Aufgaben digitalisieren oder automatisieren möchten.',
+            result: 'Wir analysieren einen konkreten Ablauf in Ihrem Unternehmen und prüfen, wie dieser sinnvoll automatisiert werden kann. Danach entwickeln wir eine passende digitale Lösung.',
+            idealFor: 'KMU und Dienstleister, die viel Zeit mit wiederkehrenden administrativen Aufgaben verlieren.',
+            highlights: [
+              'Anfrage-Vorqualifizierung',
+              'Automatische E-Mail-Antworten',
+              'Formular-Workflows',
+              'Interne Benachrichtigungen',
+              'CRM-Übergaben',
+              'Datenstrukturierung',
+              'Einfache Prozessautomatisierungen',
+            ],
+            process: [
+              'Analyse des Prozesses',
+              'Prüfung der technischen Machbarkeit',
+              'Konzept und Aufwandsschätzung',
+              'Umsetzung eines konkreten Workflows',
+            ],
+            cta: 'Machbarkeitsanalyse anfragen',
+          },
+        ],
+      },
+    },
   },
   en: {
     nav: {
@@ -462,7 +660,7 @@ export const translations: Record<Language, Translations> = {
       workItems: [
         {
           title: 'Founder-led studio',
-          description: 'Work directly with us — from strategy to launch.',
+          description: 'Work directly with us - from strategy to launch.',
         },
         {
           title: 'Structure before design',
@@ -570,6 +768,11 @@ export const translations: Record<Language, Translations> = {
     },
     team: {
       title: 'The Team',
+      vision: {
+        heading: 'Our Vision',
+        para1: 'We founded Wistho to help SMEs present themselves online more clearly, with better structure and a more professional appearance.',
+        para2: 'Our focus is on sustainable performance and thoughtful structure - not short-term trends.',
+      },
       yanik: {
         role: 'Co-Founder · Engineering',
         description:
@@ -592,6 +795,12 @@ export const translations: Record<Language, Translations> = {
         'Send us a short message – we will get back to you with an assessment and concrete ideas.',
       email: 'Email',
       phone: 'WhatsApp / Phone',
+      links: {
+        emailLabel: 'Email',
+        emailText: 'Send us an email',
+        whatsappLabel: 'Phone & WhatsApp',
+        whatsappText: 'Write via WhatsApp',
+      },
       form: {
         name: 'Name',
         email: 'Email',
@@ -693,6 +902,140 @@ export const translations: Record<Language, Translations> = {
     projectsCTA: {
       primary: 'Discuss Project',
       secondary: 'View Cases',
+    },
+    testimonials: {
+      heading: 'Trust Through Real Collaboration.',
+      items: [
+        {
+          quote: 'The collaboration was clearly structured and professional.\nOur new website looks premium - and online bookings are running significantly more efficiently than before.',
+          name: 'Ahmad O.',
+          role: 'Owner, Coiffeur Styl',
+        },
+      ],
+    },
+    packages: {
+      title: 'Service Packages',
+      subtitle: 'Clear solutions for modern service providers — from professional websites to booking, AI and automation.',
+      labels: {
+        result: 'The Result',
+        idealFor: 'Ideal for',
+        process: 'Process',
+        mostPopular: 'Most Popular',
+      },
+      webGroup: {
+        title: 'High-Performance Web Design',
+        items: [
+          {
+            name: 'WISTHO Starter',
+            description: 'The professional website for local businesses that want to appear more credible and established online.',
+            result: 'A modern website that presents your offering clearly, builds trust, and guides visitors toward making an inquiry.',
+            idealFor: 'Freelancers, local service providers, new studios, barbers, hairdressers, and small businesses.',
+            highlights: [
+              'Custom web design tailored to your brand',
+              'Up to 3 strategic pages',
+              'Mobile-first implementation',
+              'Contact form or WhatsApp inquiry',
+              'Technical foundation optimization',
+              'SEO foundation for local visibility',
+              'Fast load times through modern development',
+            ],
+            cta: 'Request project without obligation',
+          },
+          {
+            name: 'WISTHO Business & Booking',
+            description: 'The website system for service providers who want more appointments and qualified inquiries.',
+            result: "Your website works for you even when you're busy. Clients can get informed, build trust, and directly book an appointment or send an inquiry.",
+            idealFor: 'Barbers, hairdressers, beauty studios, nail studios, physios, practices and local service providers with appointment-based business.',
+            highlights: [
+              'Everything in WISTHO Starter',
+              'Multi-page website structure',
+              'Clear service pages',
+              'Online appointment booking',
+              'Optional: online payment',
+              'Automated confirmations where technically possible',
+              'Conversion-focused user journey',
+              'Local SEO foundations',
+              'Premium animations and interactions',
+            ],
+            cta: 'Secure free potential analysis',
+          },
+          {
+            name: 'WISTHO Growth & Custom',
+            description: 'The tailored solution for companies that need more than a classic website.',
+            result: 'A high-quality website or web application that presents professionally, structures complex content, and digitally supports concrete workflows.',
+            idealFor: 'Established SMEs, property developers, real estate projects, general contractors and companies with individual requirements or custom digital workflows.',
+            highlights: [
+              'Everything in WISTHO Business & Booking',
+              'Custom page and feature structure',
+              'Custom web app functions',
+              'Database integration if needed',
+              'API connections to existing tools',
+              'Analytics setup',
+              'Performance optimization',
+              'Technical development after launch',
+            ],
+            cta: 'Schedule strategy consultation',
+          },
+        ],
+      },
+      aiGroup: {
+        title: 'AI & Automation',
+        subtitle: 'Scalable modules for companies that want to handle recurring questions, inquiries or internal workflows more efficiently.',
+        items: [
+          {
+            name: 'AI Website Assistant',
+            description: 'The smart assistant for recurring customer questions on your website.',
+            result: 'An AI assistant answers common questions about services, pricing, opening hours, processes or appointments, and directs interested visitors to submit an inquiry when needed.',
+            idealFor: 'Companies that receive many similar questions by phone, email, WhatsApp or Instagram.',
+            highlights: [
+              'AI chatbot with knowledge base',
+              'Training with your provided company information',
+              'Integration on your website',
+              'FAQ logic',
+              'Handover to contact form, email or WhatsApp',
+              'No automated actions without approval',
+            ],
+            cta: 'Request chatbot concept',
+          },
+          {
+            name: 'AI Voice Assistant',
+            description: 'The digital phone assistant for missed calls and simple first contacts.',
+            result: "An AI voice assistant can answer calls, record inquiries and prepare structured information for you. Particularly useful for businesses that often can't take calls during work.",
+            idealFor: 'Service providers, tradespeople, practices and studios that regularly miss calls or receive many similar phone inquiries.',
+            highlights: [
+              'Record inquiries',
+              'Capture contact details',
+              'Prepare appointment requests',
+              'Document callback requests',
+              'Forward information in a structured way',
+              'Implementation is assessed individually',
+            ],
+            cta: 'Request live demo',
+          },
+          {
+            name: 'Automation Sprint',
+            description: 'For companies that want to digitize or automate recurring manual tasks.',
+            result: 'We analyze a specific workflow in your company and assess how it can be meaningfully automated. We then develop a suitable digital solution.',
+            idealFor: 'SMEs and service providers who spend a lot of time on recurring administrative tasks.',
+            highlights: [
+              'Inquiry pre-qualification',
+              'Automatic email replies',
+              'Form workflows',
+              'Internal notifications',
+              'CRM handovers',
+              'Data structuring',
+              'Simple process automations',
+            ],
+            process: [
+              'Analysis of the process',
+              'Assessment of technical feasibility',
+              'Concept and effort estimation',
+              'Implementation of a concrete workflow',
+            ],
+            cta: 'Request feasibility analysis',
+          },
+        ],
+      },
     },
   },
 }

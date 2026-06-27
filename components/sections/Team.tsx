@@ -93,11 +93,11 @@ export default function Team() {
           ))}
         </div>
 
-        {/* Unser Anspruch */}
+        {/* Vision */}
         <AnimatedSection delay={0.3}>
           <div className="max-w-3xl">
             <h3 className="text-2xl sm:text-3xl font-semibold text-primary-dark dark:text-white mb-8 tracking-tight">
-              Unser Anspruch
+              {t.team.vision.heading}
             </h3>
             <blockquote>
               <span
@@ -107,10 +107,10 @@ export default function Team() {
                 &ldquo;
               </span>
               <p className="text-xl sm:text-2xl text-primary-dark/75 dark:text-white/75 leading-relaxed font-light">
-                Wir haben Wistho gegründet, um KMU zu helfen, online klarer, strukturierter und professioneller aufzutreten.
+                {t.team.vision.para1}
               </p>
               <p className="text-xl sm:text-2xl text-primary-dark/60 dark:text-white/60 leading-relaxed font-light mt-4">
-                Unser Fokus liegt auf nachhaltiger Performance und durchdachter Struktur – nicht auf kurzfristigen Trends.
+                {t.team.vision.para2}
               </p>
               <span
                 className="block text-6xl leading-none text-primary-dark/8 dark:text-white/8 font-serif select-none mt-4 text-right"

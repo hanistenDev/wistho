@@ -1,34 +1,22 @@
 'use client'
 
 import AnimatedSection from '@/components/ui/AnimatedSection'
-
-const testimonials = [
-  {
-    quote:
-      'Die Zusammenarbeit war klar strukturiert und professionell.\nUnsere neue Website wirkt hochwertig – und die Online-Buchungen laufen deutlich effizienter als zuvor.',
-    name: 'Ahmad O.',
-    role: 'Inhaber, Coiffeur Styl',
-  },
-  {
-    quote:
-      'Die Zusammenarbeit ist sehr angenehm und gut organisiert.\nIch fühle mich verstanden und professionell begleitet – genau so, wie ich es mir gewünscht habe.',
-    name: 'Maria L.',
-    role: 'Inhaberin, Huy Nails',
-  },
-]
+import { useApp } from '@/contexts/AppContext'
 
 export default function Testimonials() {
+  const { t } = useApp()
+
   return (
     <section className="py-32 px-4 sm:px-6 lg:px-8 bg-white dark:bg-primary-dark/30">
       <div className="max-w-4xl mx-auto">
         <AnimatedSection>
           <h2 className="text-4xl sm:text-5xl font-semibold text-primary-dark dark:text-white mb-20 tracking-tight">
-            Vertrauen durch echte Zusammenarbeit.
+            {t.testimonials.heading}
           </h2>
         </AnimatedSection>
 
         <div className="space-y-20">
-          {testimonials.map((testimonial, index) => (
+          {t.testimonials.items.map((testimonial, index) => (
             <AnimatedSection key={index} delay={0.1 + index * 0.15}>
               <blockquote>
                 <span

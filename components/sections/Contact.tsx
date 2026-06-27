@@ -292,10 +292,10 @@ export default function Contact() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <span className="block text-[11px] font-medium text-primary-dark/45 dark:text-white/45 uppercase tracking-[0.08em] mb-0.5">
-                    E-Mail
+                    {t.contact.links.emailLabel}
                   </span>
                   <span className="block text-[15px] font-semibold text-primary-dark dark:text-white truncate">
-                    Per E-Mail schreiben
+                    {t.contact.links.emailText}
                   </span>
                 </div>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 text-primary-dark/25 dark:text-white/25 group-hover:text-primary-dark/50 dark:group-hover:text-white/50 group-hover:translate-x-0.5 transition-all duration-200">
@@ -317,10 +317,10 @@ export default function Contact() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <span className="block text-[11px] font-medium text-primary-dark/45 dark:text-white/45 uppercase tracking-[0.08em] mb-0.5">
-                    Telefon & WhatsApp
+                    {t.contact.links.whatsappLabel}
                   </span>
                   <span className="block text-[15px] font-semibold text-primary-dark dark:text-white">
-                    Via WhatsApp schreiben
+                    {t.contact.links.whatsappText}
                   </span>
                 </div>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 text-primary-dark/25 dark:text-white/25 group-hover:text-primary-dark/50 dark:group-hover:text-white/50 group-hover:translate-x-0.5 transition-all duration-200">
