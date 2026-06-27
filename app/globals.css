@@ -62,6 +62,11 @@ html[data-preloader="reveal"] footer {
   body {
     @apply bg-background dark:bg-primary-dark text-primary-dark dark:text-white antialiased;
   }
+
+  /* Ensure hover-lift animations use GPU-composited transforms only */
+  [data-hover-lift] {
+    will-change: transform;
+  }
 }
 
 @layer utilities {

@@ -335,7 +335,7 @@ export const translations: Record<Language, Translations> = {
         submit: 'Nachricht senden',
         submitting: 'Wird gesendet...',
         success: '✓ Nachricht gesendet!',
-        responseTime: 'Wir melden uns innerhalb von 1–2 Werktagen bei dir.',
+        responseTime: 'Wir melden uns innerhalb von 1–2 Werktagen bei Ihnen.',
       },
     },
     footer: {

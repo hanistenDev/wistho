@@ -3,9 +3,143 @@
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import { motion } from 'framer-motion'
 import { useApp } from '@/contexts/AppContext'
+import { navigateToSection } from '@/lib/navigate'
+
+function CheckIcon() {
+  return (
+    <svg
+      className="w-4 h-4 shrink-0 text-primary-dark/40 dark:text-white/40 mt-0.5"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M5 13l4 4L19 7" />
+    </svg>
+  )
+}
+
+const webPackages = [
+  {
+    name: 'WISTHO Starter',
+    badge: null,
+    featured: false,
+    description: 'Die professionelle Website für lokale Betriebe, die online klarer und hochwertiger auftreten möchten.',
+    result: 'Eine moderne Website, die Ihr Angebot verständlich präsentiert, Vertrauen schafft und Besucher gezielt zur Anfrage führt.',
+    idealFor: 'Selbstständige, lokale Dienstleister, neue Studios, Barber, Coiffeure und kleine Unternehmen.',
+    highlights: [
+      'Individuelles Webdesign abgestimmt auf Ihre Marke',
+      'Bis zu 3 strategische Seiten',
+      'Mobile-First Umsetzung',
+      'Kontaktformular oder WhatsApp-Anfrage',
+      'Technische Grundoptimierung',
+      'SEO-Grundstruktur für lokale Sichtbarkeit',
+      'Schnelle Ladezeiten durch moderne Entwicklung',
+    ],
+    cta: 'Projekt unverbindlich anfragen',
+  },
+  {
+    name: 'WISTHO Business & Booking',
+    badge: 'Meistgebucht',
+    featured: true,
+    description: 'Das Website-System für Dienstleister, die mehr Termine und qualifizierte Anfragen erhalten möchten.',
+    result: 'Ihre Website arbeitet auch dann für Sie, wenn Sie gerade beschäftigt sind. Kunden können sich informieren, Vertrauen aufbauen und direkt einen Termin oder eine Anfrage auslösen.',
+    idealFor: 'Barber, Coiffeure, Kosmetikstudios, Nagelstudios, Physios, Praxen und lokale Dienstleister mit Termin- oder Anfragegeschäft.',
+    highlights: [
+      'Alles aus WISTHO Starter',
+      'Mehrseitige Website-Struktur',
+      'Klare Leistungsseiten',
+      'Online-Terminbuchung',
+      'Optional: Online-Zahlung',
+      'Automatische Bestätigungen, sofern technisch möglich',
+      'Conversion-orientierte Nutzerführung',
+      'Lokale SEO-Grundlagen',
+      'Hochwertige Animationen und Interaktionen',
+    ],
+    cta: 'Kostenlose Potenzialanalyse sichern',
+  },
+  {
+    name: 'WISTHO Growth & Custom',
+    badge: null,
+    featured: false,
+    description: 'Die individuelle Lösung für Unternehmen, die mehr als eine klassische Website benötigen.',
+    result: 'Eine hochwertige Website oder Web-Applikation, die professionell auftritt, komplexere Inhalte strukturiert und konkrete Abläufe digital unterstützt.',
+    idealFor: 'Etablierte KMU, Bauträger, Immobilienprojekte, Generalunternehmer und Unternehmen mit individuellen Anforderungen oder eigenen digitalen Abläufen.',
+    highlights: [
+      'Alles aus WISTHO Business & Booking',
+      'Individuelle Seiten- und Funktionsstruktur',
+      'Custom Web-App Funktionen',
+      'Datenbank-Anbindung bei Bedarf',
+      'API-Schnittstellen zu bestehenden Tools',
+      'Analytics-Setup',
+      'Performance-Optimierung',
+      'Technische Weiterentwicklung nach dem Launch',
+    ],
+    cta: 'Strategiegespräch vereinbaren',
+  },
+]
+
+const aiPackages = [
+  {
+    name: 'AI Website Assistant',
+    description: 'Der smarte Assistent für wiederkehrende Kundenfragen auf Ihrer Website.',
+    result: 'Ein KI-Assistent beantwortet häufige Fragen zu Leistungen, Preisen, Öffnungszeiten, Abläufen oder Terminen und leitet Interessenten bei Bedarf zur Anfrage weiter.',
+    idealFor: 'Unternehmen, die viele ähnliche Fragen per Telefon, E-Mail, WhatsApp oder Instagram erhalten.',
+    highlights: [
+      'KI-Chatbot mit Wissensbasis',
+      'Training mit bereitgestellten Unternehmensinformationen',
+      'Integration auf Ihrer Website',
+      'FAQ-Logik',
+      'Übergabe an Kontaktformular, E-Mail oder WhatsApp',
+      'Keine automatischen Aktionen ohne Freigabe',
+    ],
+    cta: 'Chatbot-Konzept anfragen',
+  },
+  {
+    name: 'AI Voice Assistant',
+    description: 'Der digitale Telefonassistent für verpasste Anrufe und einfache Erstkontakte.',
+    result: 'Ein KI-Sprachassistent kann Anrufe entgegennehmen, Anliegen erfassen und strukturierte Informationen für Sie vorbereiten. Besonders sinnvoll für Betriebe, die während der Arbeit oft nicht ans Telefon können.',
+    idealFor: 'Dienstleister, Handwerksbetriebe, Praxen und Studios, die regelmässig Anrufe verpassen oder viele ähnliche telefonische Anfragen erhalten.',
+    highlights: [
+      'Anliegen aufnehmen',
+      'Kontaktdaten erfassen',
+      'Terminanfragen vorbereiten',
+      'Rückrufwünsche dokumentieren',
+      'Informationen strukturiert weiterleiten',
+      'Umsetzung wird individuell geprüft',
+    ],
+    cta: 'Live-Demo anfragen',
+  },
+  {
+    name: 'Automation Sprint',
+    description: 'Für Unternehmen, die wiederkehrende manuelle Aufgaben digitalisieren oder automatisieren möchten.',
+    result: 'Wir analysieren einen konkreten Ablauf in Ihrem Unternehmen und prüfen, wie dieser sinnvoll automatisiert werden kann. Danach entwickeln wir eine passende digitale Lösung.',
+    idealFor: 'KMU und Dienstleister, die viel Zeit mit wiederkehrenden administrativen Aufgaben verlieren.',
+    highlights: [
+      'Anfrage-Vorqualifizierung',
+      'Automatische E-Mail-Antworten',
+      'Formular-Workflows',
+      'Interne Benachrichtigungen',
+      'CRM-Übergaben',
+      'Datenstrukturierung',
+      'Einfache Prozessautomatisierungen',
+    ],
+    process: [
+      'Analyse des Prozesses',
+      'Prüfung der technischen Machbarkeit',
+      'Konzept und Aufwandsschätzung',
+      'Umsetzung eines konkreten Workflows',
+    ],
+    cta: 'Machbarkeitsanalyse anfragen',
+  },
+]
 
 export default function Services() {
   const { t } = useApp()
+
+  const scrollToContact = () => navigateToSection('#kontakt')
 
   const services = [
     {
@@ -127,6 +261,183 @@ export default function Services() {
             </AnimatedSection>
           ))}
         </div>
+
+        {/* ── Leistungspakete ── */}
+        <div className="mt-28">
+          {/* Header */}
+          <AnimatedSection>
+            <div className="mb-16">
+              <h2 className="text-4xl sm:text-5xl font-semibold text-primary-dark dark:text-white mb-4 tracking-tight">
+                Leistungspakete
+              </h2>
+              <p className="text-lg sm:text-xl text-primary-dark/65 dark:text-white/65 max-w-2xl">
+                Klare Lösungen für moderne Dienstleister – von der professionellen Website bis zu Booking, AI und Automatisierung.
+              </p>
+            </div>
+          </AnimatedSection>
+
+          {/* Group 1 – Webdesign */}
+          <AnimatedSection delay={0.05}>
+            <div className="mb-10">
+              <h3 className="text-2xl sm:text-3xl font-semibold text-primary-dark dark:text-white tracking-tight mb-2">
+                High-Performance Webdesign
+              </h3>
+              <div className="h-px w-12 bg-primary-dark/15 dark:bg-white/15" />
+            </div>
+          </AnimatedSection>
+
+          <div className="grid lg:grid-cols-3 gap-5 items-start">
+            {webPackages.map((pkg, index) => (
+              <AnimatedSection key={pkg.name} delay={0.08 + index * 0.08}>
+                <motion.div
+                  whileHover={{ y: -4 }}
+                  transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+                  className={`relative rounded-2xl p-8 border flex flex-col h-full transition-shadow ${
+                    pkg.featured
+                      ? 'bg-primary-dark dark:bg-white border-transparent shadow-[0_20px_60px_-12px_rgba(2,6,23,0.35)] dark:shadow-[0_20px_60px_-12px_rgba(0,0,0,0.5)]'
+                      : 'bg-background dark:bg-primary-dark/50 border-primary-dark/10 dark:border-white/10 hover:border-primary-dark/20 dark:hover:border-white/20 hover:shadow-lg'
+                  }`}
+                >
+                  {pkg.badge && (
+                    <div className="absolute -top-3.5 left-8">
+                      <span className="bg-accent text-white text-[11px] font-semibold tracking-[0.12em] uppercase px-3 py-1 rounded-full">
+                        {pkg.badge}
+                      </span>
+                    </div>
+                  )}
+
+                  <div className="mb-6">
+                    <h3 className={`text-xl font-semibold tracking-tight mb-3 ${pkg.featured ? 'text-white dark:text-primary-dark' : 'text-primary-dark dark:text-white'}`}>
+                      {pkg.name}
+                    </h3>
+                    <p className={`text-[15px] leading-relaxed ${pkg.featured ? 'text-white/90 dark:text-primary-dark/80' : 'text-primary-dark/75 dark:text-white/75'}`}>
+                      {pkg.description}
+                    </p>
+                  </div>
+
+                  <div className={`rounded-xl px-5 py-4 mb-6 ${pkg.featured ? 'bg-white/10 dark:bg-primary-dark/10' : 'bg-primary-dark/[0.04] dark:bg-white/[0.05]'}`}>
+                    <p className={`font-semibold mb-1.5 text-[11px] tracking-[0.12em] uppercase ${pkg.featured ? 'text-white/50 dark:text-primary-dark/50' : 'text-primary-dark/40 dark:text-white/40'}`}>
+                      Das Resultat
+                    </p>
+                    <p className={`leading-relaxed text-[14px] ${pkg.featured ? 'text-white/90 dark:text-primary-dark/80' : 'text-primary-dark/75 dark:text-white/75'}`}>
+                      {pkg.result}
+                    </p>
+                  </div>
+
+                  <div className="mb-6">
+                    <p className={`font-semibold mb-2 text-[11px] tracking-[0.12em] uppercase ${pkg.featured ? 'text-white/50 dark:text-primary-dark/50' : 'text-primary-dark/40 dark:text-white/40'}`}>
+                      Ideal für
+                    </p>
+                    <p className={`text-[14px] leading-relaxed ${pkg.featured ? 'text-white/80 dark:text-primary-dark/75' : 'text-primary-dark/70 dark:text-white/70'}`}>
+                      {pkg.idealFor}
+                    </p>
+                  </div>
+
+                  <ul className="space-y-2.5 mb-8 flex-grow">
+                    {pkg.highlights.map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <svg
+                          className={`w-4 h-4 shrink-0 mt-0.5 ${pkg.featured ? 'text-white/60 dark:text-primary-dark/60' : 'text-primary-dark/40 dark:text-white/40'}`}
+                          fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                          strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"
+                        >
+                          <path d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className={`text-[14px] leading-snug ${pkg.featured ? 'text-white/90 dark:text-primary-dark/80' : 'text-primary-dark/70 dark:text-white/70'}`}>
+                          {item}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <button
+                    onClick={scrollToContact}
+                    className={`w-full rounded-full py-3 text-sm font-medium transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md ${
+                      pkg.featured
+                        ? 'bg-white dark:bg-primary-dark text-primary-dark dark:text-white hover:bg-white/90 dark:hover:bg-primary-dark/90'
+                        : 'bg-primary-dark dark:bg-white text-white dark:text-primary-dark hover:bg-primary-dark/90 dark:hover:bg-white/90'
+                    }`}
+                  >
+                    {pkg.cta}
+                  </button>
+                </motion.div>
+              </AnimatedSection>
+            ))}
+          </div>
+
+          {/* Group 2 – AI & Automation */}
+          <AnimatedSection delay={0.05}>
+            <div className="mt-24 mb-10">
+              <h3 className="text-2xl sm:text-3xl font-semibold text-primary-dark dark:text-white tracking-tight mb-2">
+                AI &amp; Automation
+              </h3>
+              <div className="h-px w-12 bg-primary-dark/15 dark:bg-white/15 mb-5" />
+              <p className="text-base text-primary-dark/65 dark:text-white/65 max-w-2xl leading-relaxed">
+                Erweiterbare Module für Unternehmen, die wiederkehrende Fragen, Anfragen oder interne Abläufe effizienter bearbeiten möchten.
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {aiPackages.map((pkg, index) => (
+              <AnimatedSection key={pkg.name} delay={0.08 + index * 0.08}>
+                <motion.div
+                  whileHover={{ y: -3 }}
+                  transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+                  className="bg-background dark:bg-primary-dark/50 rounded-2xl p-7 border border-primary-dark/10 dark:border-white/10 hover:border-primary-dark/20 dark:hover:border-white/20 hover:shadow-lg transition-shadow flex flex-col h-full"
+                >
+                  <h3 className="text-[18px] font-semibold text-primary-dark dark:text-white tracking-tight mb-2.5">
+                    {pkg.name}
+                  </h3>
+                  <p className="text-[14px] text-primary-dark/70 dark:text-white/70 leading-relaxed mb-5">
+                    {pkg.description}
+                  </p>
+
+                  <div className="rounded-xl bg-primary-dark/[0.04] dark:bg-white/[0.05] px-4 py-3.5 mb-5">
+                    <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-primary-dark/40 dark:text-white/40 mb-1.5">Das Resultat</p>
+                    <p className="text-[13px] text-primary-dark/70 dark:text-white/70 leading-relaxed">{pkg.result}</p>
+                  </div>
+
+                  <div className="mb-5">
+                    <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-primary-dark/40 dark:text-white/40 mb-2">Ideal für</p>
+                    <p className="text-[13px] text-primary-dark/70 dark:text-white/70 leading-relaxed">{pkg.idealFor}</p>
+                  </div>
+
+                  <ul className="space-y-2 mb-5 flex-grow">
+                    {pkg.highlights.map((item) => (
+                      <li key={item} className="flex items-start gap-2.5">
+                        <CheckIcon />
+                        <span className="text-[13px] text-primary-dark/70 dark:text-white/70 leading-snug">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {'process' in pkg && pkg.process && (
+                    <div className="mb-5">
+                      <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-primary-dark/40 dark:text-white/40 mb-2.5">Ablauf</p>
+                      <ol className="space-y-1.5">
+                        {pkg.process.map((step, i) => (
+                          <li key={step} className="flex items-start gap-2.5">
+                            <span className="text-[11px] font-semibold text-primary-dark/30 dark:text-white/30 mt-0.5 tabular-nums w-4 shrink-0">{i + 1}.</span>
+                            <span className="text-[13px] text-primary-dark/70 dark:text-white/70 leading-snug">{step}</span>
+                          </li>
+                        ))}
+                      </ol>
+                    </div>
+                  )}
+
+                  <button
+                    onClick={scrollToContact}
+                    className="mt-auto w-full rounded-full py-2.5 text-[13px] font-medium text-primary-dark dark:text-white border border-primary-dark/15 dark:border-white/15 hover:bg-primary-dark hover:text-white dark:hover:bg-white dark:hover:text-primary-dark transition-all duration-200 hover:-translate-y-0.5"
+                  >
+                    {pkg.cta}
+                  </button>
+                </motion.div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   )

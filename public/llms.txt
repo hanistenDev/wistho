@@ -1,0 +1,51 @@
+# Wistho – Webagentur Zürich
+
+Wistho ist eine Webagentur aus Zürich, Schweiz. Wir entwickeln moderne, schnelle Websites mit Online-Terminbuchung und Conversion-Fokus für lokale Dienstleister und KMU — darunter Coiffeure, Barbershops, Kosmetik- und Nagelstudios, Physiotherapie- und Arztpraxen, Zahnärzte, Handwerksbetriebe sowie Immobilien- und Dienstleistungsunternehmen.
+
+## Über uns
+
+- Name: Wistho
+- Standort: Zürich, Schweiz
+- Gründer: Yanik Wisler & Hanisten Thivakaran
+- Website: https://wistho.ch
+- E-Mail: info@wistho.ch
+- Instagram: https://www.instagram.com/wistho.studio
+- LinkedIn: https://www.linkedin.com/company/wistho
+
+## Leistungen
+
+### High-Performance Webdesign
+
+- **WISTHO Starter** – Professionelle Website für Selbstständige und kleine Betriebe; bis zu 3 Seiten, Mobile-First, SEO-Grundstruktur, Kontaktformular oder WhatsApp.
+- **WISTHO Business & Booking** – Website mit Online-Terminbuchung für Dienstleister; mehrere Seiten, Conversion-Fokus, lokale SEO, optionale Online-Zahlung.
+- **WISTHO Growth & Custom** – Individuelle Web-App oder komplexe Website für KMU; Custom-Funktionen, API-Anbindungen, Analytics, Datenbank.
+
+### AI & Automation
+
+- **AI Website Assistant** – KI-Chatbot für automatisierte Beantwortung häufiger Kundenfragen auf der Website.
+- **AI Voice Assistant** – KI-Telefonassistent für Anruferfassung und Terminvorbereitung bei verpassten Anrufen.
+- **Automation Sprint** – Analyse und Automatisierung eines konkreten Geschäftsprozesses für KMU.
+
+## Zielgruppe
+
+Barber, Coiffeure, Kosmetikstudios, Nagelstudios, Physiotherapeuten, Arztpraxen, Zahnärzte, Handwerksbetriebe, Immobilienunternehmen und lokale Dienstleister in Zürich und der ganzen Schweiz.
+
+## Hauptseiten
+
+- / – Startseite mit Hero, Leistungen, Projekte, Team, Kontakt
+- /#ueber-uns – Über Wistho: Ansatz und Arbeitsweise
+- /#leistungen – Leistungen & Pakete (Webdesign, AI, Automation)
+- /#projekte – Referenzprojekte (Coiffeur Styl, Huy Nails)
+- /#team – Team: Yanik Wisler & Hanisten Thivakaran
+- /#kontakt – Kontaktformular, WhatsApp, Instagram
+- /impressum – Rechtliche Angaben
+- /datenschutz – Datenschutzerklärung
+
+## Häufige Fragen
+
+- Was braucht ihr von mir? Logo, Texte, Bilder und ein kurzes Gespräch — danach übernehmen wir den Rest.
+- Wie lange dauert eine Website? In der Regel 2–4 Wochen.
+- Was kostet eine Website? Individuell — kostenloses Erstgespräch, transparentes Angebot.
+- Kann ich Online-Terminbuchung integrieren? Ja, inkl. optionaler Online-Zahlung.
+- Wird die Website bei Google gefunden? Ja, SEO-Optimierung ist inklusive.
+- Funktioniert die Website auf dem Handy? Ja, alle Websites sind Mobile-First.

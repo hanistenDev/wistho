@@ -11,6 +11,10 @@ export default function About() {
 
   return (
     <section id="ueber-uns" className="py-28 px-4 sm:px-6 lg:px-8">
+      {/* Crawlable intro for search engines and AI agents — visually hidden */}
+      <p className="sr-only">
+        Wistho ist eine Webagentur aus Zürich, spezialisiert auf moderne, schnelle Websites mit Online-Terminbuchung für lokale Dienstleister, KMU und Praxen.
+      </p>
       <div className="max-w-5xl mx-auto">
         <AnimatedSection>
           <h2 className="text-4xl sm:text-5xl font-semibold text-primary-dark dark:text-white mb-8 tracking-tight">

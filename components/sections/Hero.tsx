@@ -135,7 +135,7 @@ function PerformancePanel() {
         <div className="relative h-full flex flex-col justify-between p-10">
           {/* PERFORMANCE label */}
           <motion.span
-            className="text-[9px] font-medium text-white/40 uppercase tracking-[0.3em] leading-none"
+            className="text-[9px] font-medium text-white/55 uppercase tracking-[0.3em] leading-none"
             animate={{ opacity: [0, 0.4, 0.4, 0] }}
             transition={{ duration: CYCLE, repeat: Infinity, times: [0, 0.06, 0.78, 0.92], ease: 'easeInOut' }}
           >
@@ -171,12 +171,12 @@ function PerformancePanel() {
             transition={{ duration: CYCLE, repeat: Infinity, times: [0, 0.14, 0.28, 0.76, 0.9], ease: 'easeInOut' }}
           >
             <div className="flex items-center">
-              <span className="text-[11px] text-white/30 tracking-wide">Load Time</span>
-              <span className="text-[11px] text-white/15 mx-2">—</span>
-              <span className="text-[11px] font-medium text-white/60 tabular-nums">0.9s</span>
+              <span className="text-[11px] text-white/50 tracking-wide">Load Time</span>
+              <span className="text-[11px] text-white/25 mx-2">—</span>
+              <span className="text-[11px] font-medium text-white/75 tabular-nums">0.9s</span>
             </div>
             <div className="flex items-center">
-              <span className="text-[11px] text-white/30 tracking-wide">Fully Responsive</span>
+              <span className="text-[11px] text-white/50 tracking-wide">Fully Responsive</span>
             </div>
           </motion.div>
         </div>
@@ -237,7 +237,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-base sm:text-lg text-primary-dark/60 dark:text-white/60 leading-relaxed max-w-lg"
+              className="text-base sm:text-lg text-primary-dark/70 dark:text-white/70 leading-relaxed max-w-lg"
             >
               {t.hero.subtitle}
             </motion.p>
@@ -293,7 +293,7 @@ export default function Hero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="text-sm text-primary-dark/60 dark:text-white/60 pt-1"
+                className="text-sm text-primary-dark/70 dark:text-white/70 pt-1"
               >
                 {t.hero.footer}
               </motion.div>

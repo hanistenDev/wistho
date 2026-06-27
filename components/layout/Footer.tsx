@@ -21,7 +21,7 @@ export default function Footer() {
               Wistho
             </div>
             <div className="text-xs text-white/40 dark:text-primary-dark/40 uppercase tracking-[0.2em] mb-4">
-              Swiss Performance Studio
+              Webagentur aus Zürich
             </div>
             <p className="text-sm text-white/50 dark:text-primary-dark/50">
               Websites built for growth.
